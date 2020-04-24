@@ -1,8 +1,18 @@
 <resources>
-    <string name="app_name">HelloWorld</string>
-    <string name="jak_ashuraliev">Jak Ashuraliev</string>
-    <string name="mobile_application_development">Mobile Application Development</string>
-    <string name="date">Date: April 14, 2020</string>
-    <string name="hello_world">Hello World!</string>
-    <string name="application_development" />
+    <string name="app_name">Login</string>
+    <string name="jak_ashuraliev">By: Jak Ashuraliev | April 24, 2020</string>
+    <string name="date">Date: April 22, 2020</string>
+    <string name="hello">Hello!</string>
+    <string name="signup_to_continue">Please signup to continue</string>
+    <string name="ralewaymedium">\@fonts/ralewaymedium</string>
+        <string name="have_account_login">Already have account? <a href="#">Login</a>
+    </string>
+    <string name="hint_username">Username</string>
+    <string name="hint_full_name">Full Name</string>
+    <string name="hint_birthdate">Date of Birth</string>
+    <string name="hint_email">Email</string>
+    <string name="hint_password">Password</string>
+    <string name="hint_confirm_password">Confirm Password</string>
+    <string name="sign_up_btn">Sign Up</string>
+    <string name="sign_up_with">Sign up with</string>
 </resources>
