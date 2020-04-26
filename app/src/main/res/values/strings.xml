@@ -2,7 +2,7 @@
     <string name="app_name">Login</string>
     <string name="jak_ashuraliev">By: Jak Ashuraliev | April 24, 2020</string>
     <string name="date">Date: April 22, 2020</string>
-    <string name="hello">Hello!</string>
+    <string name="get_started">Let\'s Get Started!</string>
     <string name="signup_to_continue">Please signup to continue</string>
     <string name="ralewaymedium">\@fonts/ralewaymedium</string>
         <string name="have_account_login">Already have account? <a href="#">Login</a>
@@ -15,4 +15,12 @@
     <string name="hint_confirm_password">Confirm Password</string>
     <string name="sign_up_btn">Sign Up</string>
     <string name="sign_up_with">Sign up with</string>
+
+    <!-- SECOND ACTIVITY -->
+    <string name="welcome">Hello,</string>
+    <string name="Info">userInfo</string>
+    <string name="welcomeMsg">Thank you for signing up! \nBelow you will find your account information:</string>
+    <string name="sign_out_btn">Sign Out</string>
+    <string name="select_date_btn">Select Date</string>
+
 </resources>

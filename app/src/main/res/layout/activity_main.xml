@@ -22,10 +22,11 @@
         android:orientation="vertical"
         app:layout_constraintGuide_end="@dimen/guide_right_20" />
 
+
     <ImageView
         android:id="@+id/app_logo"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
+        android:layout_width="@dimen/logo_width80"
+        android:layout_height="@dimen/logo_height80"
         android:layout_marginTop="@dimen/marginTop10"
         android:background="@drawable/app_logo2"
         android:gravity="center"
@@ -39,9 +40,9 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/marginTop20"
         android:fontFamily="@font/ralewaybold"
-        android:text="@string/hello"
+        android:text="@string/get_started"
         android:textColor="@color/colorWhite"
-        android:textSize="@dimen/helloText"
+        android:textSize="@dimen/size35"
         app:layout_constraintStart_toStartOf="@id/guideline_left"
         app:layout_constraintTop_toBottomOf="@id/app_logo" />
 
@@ -56,7 +57,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView" />
 
     <EditText
-        android:id="@+id/username"
+        android:id="@+id/etUsername"
         android:layout_width="@dimen/width_0"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/marginTop40"
@@ -71,7 +72,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView1" />
 
     <EditText
-        android:id="@+id/full_name"
+        android:id="@+id/etFullname"
         android:layout_width="@dimen/width_0"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/marginTop20"
@@ -83,10 +84,10 @@
         android:textColorHint="@color/colorGrey"
         app:layout_constraintEnd_toStartOf="@id/guideline_right"
         app:layout_constraintStart_toStartOf="@id/guideline_left"
-        app:layout_constraintTop_toBottomOf="@+id/username" />
+        app:layout_constraintTop_toBottomOf="@+id/etUsername" />
 
     <EditText
-        android:id="@+id/email"
+        android:id="@+id/etEmail"
         android:layout_width="@dimen/width_0"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/marginTop20"
@@ -98,25 +99,38 @@
         android:textColorHint="@color/colorGrey"
         app:layout_constraintEnd_toStartOf="@id/guideline_right"
         app:layout_constraintStart_toStartOf="@id/guideline_left"
-        app:layout_constraintTop_toBottomOf="@+id/full_name" />
+        app:layout_constraintTop_toBottomOf="@+id/etFullname" />
 
     <EditText
         android:id="@+id/birthdate"
         android:layout_width="@dimen/width_0"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/marginTop20"
+        android:layout_marginRight="@dimen/marginRight5"
         android:background="@drawable/edit_text_bg"
         android:hint="@string/hint_birthdate"
-        android:inputType="number"
+        android:inputType="date"
         android:padding="@dimen/padding_all_10"
         android:textColor="@color/colorWhite"
         android:textColorHint="@color/colorGrey"
-        app:layout_constraintEnd_toStartOf="@id/guideline_right"
+        app:layout_constraintEnd_toStartOf="@id/btnSelectDate"
         app:layout_constraintStart_toStartOf="@id/guideline_left"
-        app:layout_constraintTop_toBottomOf="@+id/email" />
+        app:layout_constraintTop_toBottomOf="@+id/etEmail" />
+
+    <Button
+        android:id="@+id/btnSelectDate"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/btn_height44"
+        android:layout_marginTop="@dimen/marginTop20"
+        android:padding="@dimen/padding_all_10"
+        android:text="@string/select_date_btn"
+        android:textColor="@color/colorWhite"
+        android:background="@color/colorDarkGrey"
+        app:layout_constraintEnd_toStartOf="@id/guideline_right"
+        app:layout_constraintTop_toBottomOf="@+id/etEmail" />
 
     <EditText
-        android:id="@+id/password"
+        android:id="@+id/etPassword"
         android:layout_width="@dimen/width_0"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/marginTop20"
@@ -142,8 +156,8 @@
         android:textSize="@dimen/size18sp"
         app:layout_constraintEnd_toStartOf="@id/guideline_right"
         app:layout_constraintStart_toStartOf="@id/guideline_left"
-        app:layout_constraintTop_toBottomOf="@+id/password"
-        android:onClick="goToActivitySecond"/>
+        app:layout_constraintTop_toBottomOf="@+id/etPassword"
+        />
 
     <TextView
         android:id="@+id/signup_with"
