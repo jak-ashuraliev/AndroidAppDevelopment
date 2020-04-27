@@ -93,7 +93,7 @@ public class MainActivity extends AppCompatActivity {
 
                 if ( validateUsername(etUsername) && validateFullname(etFullname) && validateEmail(etEmail) && calculateAge(date) && validatePassword(etPassword) ) {
 
-                    Intent intent = new Intent(MainActivity.this, SecontActivity.class);
+                    Intent intent = new Intent(MainActivity.this, SecondActivity.class);
                     intent.putExtra("user_name", etUsername.getText().toString());
                     intent.putExtra("full_name", etFullname.getText().toString());
                     intent.putExtra("email", etEmail.getText().toString());

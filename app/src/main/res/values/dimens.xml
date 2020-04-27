@@ -21,12 +21,12 @@
     <dimen name="marginTop20">20dp</dimen>
     <dimen name="marginTop40">40dp</dimen>
     <dimen name="marginLeft">50dp</dimen>
-    <dimen name="margin_right50">50dp</dimen>
-    <dimen name="margin_left50">50dp</dimen>
+    <dimen name="margin_right10">10dp</dimen>
+    <dimen name="margin_left10">10dp</dimen>
     <dimen name="marginTop80">80dp</dimen>
 
-    <dimen name="guide_left_20">20dp</dimen>
-    <dimen name="guide_right_20">20dp</dimen>
+    <dimen name="guide_left_10">10dp</dimen>
+    <dimen name="guide_right_10">10dp</dimen>
     <dimen name="width_0">0dp</dimen>
 
     <dimen name="icon_w30">30dp</dimen>
@@ -34,6 +34,9 @@
     <dimen name="logo_width80">80dp</dimen>
     <dimen name="logo_height80">80dp</dimen>
     <dimen name="btn_height44">44dp</dimen>
+    <dimen name="dob_width_278">278dp</dimen>
+    <dimen name="select_btn44">44dp</dimen>
+    <dimen name="marginTop18">18dp</dimen>
 
 
 </resources>

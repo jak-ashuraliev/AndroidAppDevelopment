@@ -1,225 +1,212 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity"
     android:background="@color/colorDarkBlue"
+    android:orientation="vertical"
     android:padding="@dimen/padding20">
 
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline_left"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_begin="@dimen/guide_left_20" />
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
 
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline_right"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_end="@dimen/guide_right_20" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
+            <ImageView
+                android:id="@+id/app_logo"
+                android:layout_width="@dimen/logo_width80"
+                android:layout_height="@dimen/logo_height80"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/marginTop20"
+                android:background="@drawable/app_logo2"
+                android:contentDescription="@string/strLogo" />
 
-    <ImageView
-        android:id="@+id/app_logo"
-        android:layout_width="@dimen/logo_width80"
-        android:layout_height="@dimen/logo_height80"
-        android:layout_marginTop="@dimen/marginTop10"
-        android:background="@drawable/app_logo2"
-        android:gravity="center"
-        app:layout_constraintEnd_toStartOf="@id/guideline_right"
-        app:layout_constraintStart_toStartOf="@id/guideline_left"
-        app:layout_constraintTop_toTopOf="parent" />
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/marginTop20"
+                android:fontFamily="@font/ralewaybold"
+                android:text="@string/get_started"
+                android:textColor="@color/colorWhite"
+                android:textSize="@dimen/size35"
+                app:layout_constraintTop_toBottomOf="@id/app_logo" />
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/marginTop20"
-        android:fontFamily="@font/ralewaybold"
-        android:text="@string/get_started"
-        android:textColor="@color/colorWhite"
-        android:textSize="@dimen/size35"
-        app:layout_constraintStart_toStartOf="@id/guideline_left"
-        app:layout_constraintTop_toBottomOf="@id/app_logo" />
+            <TextView
+                android:id="@+id/textView1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/signup_to_continue"
+                android:textColor="@color/colorLightGrey"
+                android:textSize="@dimen/size16sp"
+                app:layout_constraintTop_toBottomOf="@+id/textView" />
 
-    <TextView
-        android:id="@+id/textView1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/signup_to_continue"
-        android:textColor="@color/colorLightGrey"
-        android:textSize="@dimen/size16sp"
-        app:layout_constraintStart_toStartOf="@id/guideline_left"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+            <EditText
+                android:id="@+id/etUsername"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/marginTop40"
+                android:background="@drawable/edit_text_bg"
+                android:hint="@string/hint_username"
+                android:inputType="textPersonName"
+                android:padding="@dimen/padding_all_10"
+                android:textColor="@color/colorWhite"
+                android:textColorHint="@color/colorGrey"
+                app:layout_constraintTop_toBottomOf="@+id/textView1" />
 
-    <EditText
-        android:id="@+id/etUsername"
-        android:layout_width="@dimen/width_0"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/marginTop40"
-        android:background="@drawable/edit_text_bg"
-        android:hint="@string/hint_username"
-        android:inputType="textPersonName"
-        android:padding="@dimen/padding_all_10"
-        android:textColor="@color/colorWhite"
-        android:textColorHint="@color/colorGrey"
-        app:layout_constraintEnd_toStartOf="@id/guideline_right"
-        app:layout_constraintStart_toStartOf="@id/guideline_left"
-        app:layout_constraintTop_toBottomOf="@+id/textView1" />
+            <EditText
+                android:id="@+id/etFullname"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/marginTop20"
+                android:background="@drawable/edit_text_bg"
+                android:hint="@string/hint_full_name"
+                android:inputType="textPersonName"
+                android:padding="@dimen/padding_all_10"
+                android:textColor="@color/colorWhite"
+                android:textColorHint="@color/colorGrey"
+                app:layout_constraintTop_toBottomOf="@+id/etUsername" />
 
-    <EditText
-        android:id="@+id/etFullname"
-        android:layout_width="@dimen/width_0"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/marginTop20"
-        android:background="@drawable/edit_text_bg"
-        android:hint="@string/hint_full_name"
-        android:inputType="textPersonName"
-        android:padding="@dimen/padding_all_10"
-        android:textColor="@color/colorWhite"
-        android:textColorHint="@color/colorGrey"
-        app:layout_constraintEnd_toStartOf="@id/guideline_right"
-        app:layout_constraintStart_toStartOf="@id/guideline_left"
-        app:layout_constraintTop_toBottomOf="@+id/etUsername" />
+            <EditText
+                android:id="@+id/etEmail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/marginTop20"
+                android:background="@drawable/edit_text_bg"
+                android:hint="@string/hint_email"
+                android:inputType="textEmailAddress"
+                android:padding="@dimen/padding_all_10"
+                android:textColor="@color/colorWhite"
+                android:textColorHint="@color/colorGrey"
+                app:layout_constraintTop_toBottomOf="@+id/etFullname" />
 
-    <EditText
-        android:id="@+id/etEmail"
-        android:layout_width="@dimen/width_0"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/marginTop20"
-        android:background="@drawable/edit_text_bg"
-        android:hint="@string/hint_email"
-        android:inputType="textEmailAddress"
-        android:padding="@dimen/padding_all_10"
-        android:textColor="@color/colorWhite"
-        android:textColorHint="@color/colorGrey"
-        app:layout_constraintEnd_toStartOf="@id/guideline_right"
-        app:layout_constraintStart_toStartOf="@id/guideline_left"
-        app:layout_constraintTop_toBottomOf="@+id/etFullname" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
 
-    <EditText
-        android:id="@+id/birthdate"
-        android:layout_width="@dimen/width_0"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/marginTop20"
-        android:layout_marginRight="@dimen/marginRight5"
-        android:background="@drawable/edit_text_bg"
-        android:hint="@string/hint_birthdate"
-        android:inputType="date"
-        android:padding="@dimen/padding_all_10"
-        android:textColor="@color/colorWhite"
-        android:textColorHint="@color/colorGrey"
-        app:layout_constraintEnd_toStartOf="@id/btnSelectDate"
-        app:layout_constraintStart_toStartOf="@id/guideline_left"
-        app:layout_constraintTop_toBottomOf="@+id/etEmail" />
+                <EditText
+                    android:id="@+id/birthdate"
+                    android:layout_width="@dimen/dob_width_278"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/marginTop20"
+                    android:layout_marginRight="@dimen/marginRight5"
+                    android:background="@drawable/edit_text_bg"
+                    android:hint="@string/hint_birthdate"
+                    android:inputType="date"
+                    android:padding="@dimen/padding_all_10"
+                    android:textColor="@color/colorWhite"
+                    android:textColorHint="@color/colorGrey"
+                    app:layout_constraintEnd_toStartOf="@id/btnSelectDate"
+                    app:layout_constraintTop_toBottomOf="@+id/etEmail" />
 
-    <Button
-        android:id="@+id/btnSelectDate"
-        android:layout_width="wrap_content"
-        android:layout_height="@dimen/btn_height44"
-        android:layout_marginTop="@dimen/marginTop20"
-        android:padding="@dimen/padding_all_10"
-        android:text="@string/select_date_btn"
-        android:textColor="@color/colorWhite"
-        android:background="@color/colorDarkGrey"
-        app:layout_constraintEnd_toStartOf="@id/guideline_right"
-        app:layout_constraintTop_toBottomOf="@+id/etEmail" />
+                <Button
+                    android:id="@+id/btnSelectDate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/select_btn44"
+                    android:layout_marginTop="@dimen/marginTop18"
+                    android:background="@color/colorDarkGrey"
+                    android:padding="@dimen/padding_all_10"
+                    android:text="@string/select_date_btn"
+                    android:textColor="@color/colorWhite"
+                    app:layout_constraintTop_toBottomOf="@+id/etEmail" />
 
-    <EditText
-        android:id="@+id/etPassword"
-        android:layout_width="@dimen/width_0"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/marginTop20"
-        android:background="@drawable/edit_text_bg"
-        android:hint="@string/hint_password"
-        android:inputType="textPassword"
-        android:padding="@dimen/padding_all_10"
-        android:textColor="@color/colorWhite"
-        android:textColorHint="@color/colorGrey"
-        app:layout_constraintEnd_toStartOf="@id/guideline_right"
-        app:layout_constraintStart_toStartOf="@id/guideline_left"
-        app:layout_constraintTop_toBottomOf="@+id/birthdate" />
+            </LinearLayout>
 
-    <Button
-        android:id="@+id/signup_btn"
-        android:layout_width="@dimen/width_0"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/marginTop20"
-        android:background="@drawable/button_radius"
-        android:padding="@dimen/padding_all_10"
-        android:text="@string/sign_up_btn"
-        android:textColor="@color/colorWhite"
-        android:textSize="@dimen/size18sp"
-        app:layout_constraintEnd_toStartOf="@id/guideline_right"
-        app:layout_constraintStart_toStartOf="@id/guideline_left"
-        app:layout_constraintTop_toBottomOf="@+id/etPassword"
-        />
+            <EditText
+                android:id="@+id/etPassword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/marginTop20"
+                android:background="@drawable/edit_text_bg"
+                android:hint="@string/hint_password"
+                android:inputType="textPassword"
+                android:padding="@dimen/padding_all_10"
+                android:textColor="@color/colorWhite"
+                android:textColorHint="@color/colorGrey"
+                app:layout_constraintTop_toBottomOf="@+id/birthdate" />
 
-    <TextView
-        android:id="@+id/signup_with"
-        android:layout_width="@dimen/width_0"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/marginTop10"
-        android:gravity="center"
-        android:padding="@dimen/padding_all_10"
-        android:text="@string/sign_up_with"
-        android:textColor="@color/colorGrey"
-        android:textSize="@dimen/size14sp"
-        app:layout_constraintEnd_toStartOf="@id/guideline_right"
-        app:layout_constraintStart_toStartOf="@id/guideline_left"
-        app:layout_constraintTop_toBottomOf="@+id/signup_btn" />
+            <Button
+                android:id="@+id/signup_btn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/marginTop20"
+                android:background="@drawable/button_radius"
+                android:padding="@dimen/padding_all_10"
+                android:text="@string/sign_up_btn"
+                android:textColor="@color/colorWhite"
+                android:textSize="@dimen/size18sp"
+                app:layout_constraintTop_toBottomOf="@+id/etPassword" />
 
-    <ImageView
-        android:id="@+id/fb_icon"
-        android:layout_width="@dimen/icon_w30"
-        android:layout_height="@dimen/icon_h30"
-        android:layout_marginTop="@dimen/marginTop10"
-        android:layout_marginRight="@dimen/margin_right50"
-        android:background="@drawable/fb_icon"
-        app:layout_constraintEnd_toStartOf="@id/guideline_right"
-        app:layout_constraintStart_toStartOf="@id/guideline_left"
-        app:layout_constraintTop_toBottomOf="@+id/signup_with" />
+            <TextView
+                android:id="@+id/signup_with"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/marginTop10"
+                android:gravity="center"
+                android:padding="@dimen/padding_all_10"
+                android:text="@string/sign_up_with"
+                android:textColor="@color/colorGrey"
+                android:textSize="@dimen/size14sp"
+                app:layout_constraintTop_toBottomOf="@+id/signup_btn" />
 
-    <ImageView
-        android:id="@+id/linkedin_icon"
-        android:layout_width="@dimen/icon_w30"
-        android:layout_height="@dimen/icon_h30"
-        android:layout_marginLeft="@dimen/margin_left50"
-        android:layout_marginTop="@dimen/marginTop10"
-        android:background="@drawable/linkedin_icon"
-        app:layout_constraintEnd_toStartOf="@id/guideline_right"
-        app:layout_constraintStart_toStartOf="@id/guideline_left"
-        app:layout_constraintTop_toBottomOf="@+id/signup_with" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal">
 
-    <TextView
-        android:id="@+id/have_account"
-        android:layout_width="@dimen/width_0"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/marginTop10"
-        android:gravity="center"
-        android:padding="@dimen/padding_all_10"
-        android:text="@string/have_account_login"
-        android:textColor="@color/colorRed"
-        android:textSize="@dimen/size14sp"
-        app:layout_constraintEnd_toStartOf="@id/guideline_right"
-        app:layout_constraintStart_toStartOf="@id/guideline_left"
-        app:layout_constraintTop_toBottomOf="@+id/linkedin_icon" />
+                <ImageView
+                    android:id="@+id/fb_icon"
+                    android:layout_width="@dimen/icon_w30"
+                    android:layout_height="@dimen/icon_h30"
+                    android:layout_marginRight="@dimen/margin_right10"
+                    android:background="@drawable/fb_icon"
+                    app:layout_constraintTop_toBottomOf="@+id/signup_with" />
 
-    <TextView
-        android:id="@+id/jak_ashuraliev"
-        android:layout_width="@dimen/width_0"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:padding="@dimen/padding_all_10"
-        android:text="@string/jak_ashuraliev"
-        android:textColor="@color/colorGrey"
-        android:textSize="@dimen/size12sp"
-        app:layout_constraintEnd_toStartOf="@id/guideline_right"
-        app:layout_constraintStart_toStartOf="@id/guideline_left"
-        app:layout_constraintTop_toBottomOf="@+id/have_account" />
+                <ImageView
+                    android:id="@+id/linkedin_icon"
+                    android:layout_width="@dimen/icon_w30"
+                    android:layout_height="@dimen/icon_h30"
+                    android:layout_marginLeft="@dimen/margin_left10"
+                    android:background="@drawable/linkedin_icon"
+                    app:layout_constraintTop_toBottomOf="@+id/signup_with" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/have_account"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/marginTop10"
+                android:gravity="center"
+                android:padding="@dimen/padding_all_10"
+                android:text="@string/have_account_login"
+                android:textColor="@color/colorRed"
+                android:textSize="@dimen/size14sp"
+                app:layout_constraintTop_toBottomOf="@+id/linkedin_icon" />
+
+            <TextView
+                android:id="@+id/jak_ashuraliev"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/jak_ashuraliev"
+                android:textColor="@color/colorGrey"
+                android:textSize="@dimen/size12sp"
+                app:layout_constraintTop_toBottomOf="@+id/have_account" />
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</RelativeLayout>
