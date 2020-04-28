@@ -60,10 +60,5 @@ public class MainActivityTest {
         onView(withId(R.id.btnSelectDate)).perform(click());
     }
 
-    @Test
-    public void signupBtnClickEvent() {
-        onView(withId(R.id.signup_btn)).perform(click());
-    }
-
 
 }
