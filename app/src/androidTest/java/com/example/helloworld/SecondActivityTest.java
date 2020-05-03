@@ -20,11 +20,6 @@ public class SecondActivityTest {
             = new ActivityScenarioRule<>(SecondActivity.class);
 
     @Test
-    public void hasGreetUserText() {
-
-    }
-
-    @Test
     public void hasWelcomeMsgScreen() {
         onView(withId(R.id.tvReceiveData2)).check(matches(withText(R.string.welcomeMsg)));
     }

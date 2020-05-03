@@ -1,4 +1,6 @@
 <resources>
+
+    <!--  MAIN ACTIVITY-->
     <string name="app_name">Login</string>
     <string name="jak_ashuraliev">By: Jak Ashuraliev | April 24, 2020</string>
     <string name="date">Date: April 26, 2020</string>
@@ -23,5 +25,21 @@
     <string name="sign_out_btn">Sign Out</string>
     <string name="select_date_btn">Select Date</string>
     <string name="strLogo">Logo</string>
+    <string name="USERNAME">USERNAME: \t\t</string>
+    <string name="FULL_NAME">FULL NAME: \t</string>
+    <string name="EMAIL">EMAIL: \t\t\t\t\t\t\t</string>
+    <string name="PASSWORD">PASSWORD: \t</string>
+    <string name="exclamation">!</string>
 
+    <!-- UNIT TEST-->
+    <string name="testUsername">jashuraliev</string>
+    <string name="testFullName">Jak Ashuraliev</string>
+    <string name="testEmail">myemail@gmail.com</string>
+    <string name="testDOB">01/02/1984</string>
+    <string name="testPassword">mypassword</string>
+    <string name="allFieldsRequired">All fields are required</string>
+    <string name="enterValidEmail">Enter valid email address</string>
+    <string name="selectDOB">Select birth date</string>
+    <string name="tooYoung">You are too young to register</string>
+    <string name="passwordWeak">Your password is weak</string>
 </resources>

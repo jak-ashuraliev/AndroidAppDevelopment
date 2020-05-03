@@ -14,4 +14,8 @@
     <color name="colorPurple">#DA51DD</color>
     <color name="colorPurpleLight">#E185FF</color>
     <color name="colorRed">#C70067</color>
+
+    <!-- Background-->
+    <color name="lightteal">#30cfd0</color>
+    <color name="darkpurple">#330867</color>
 </resources>

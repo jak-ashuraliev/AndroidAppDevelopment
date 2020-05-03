@@ -1,82 +1,72 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".SecondActivity"
     android:background="@color/colorDarkBlue"
-    android:orientation="vertical"
     android:padding="@dimen/padding20">
+   <RelativeLayout
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content">
 
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:fillViewport="true">
+        <ImageView
+            android:id="@+id/app_logo"
+            android:layout_width="@dimen/logo_width80"
+            android:layout_height="@dimen/logo_height80"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/marginTop20"
+            android:background="@drawable/app_logo2"
+            android:contentDescription="@string/strLogo" />
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
+        <TextView
+            android:id="@+id/tvReceiveData1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/marginTop20"
+            android:fontFamily="@font/ralewaybold"
+            android:text="@string/welcome"
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/size25"
+            android:layout_below="@+id/app_logo" />
 
-    <ImageView
-        android:id="@+id/app_logo"
-        android:layout_width="@dimen/logo_width80"
-        android:layout_height="@dimen/logo_height80"
-        android:layout_gravity="center"
-        android:layout_marginTop="@dimen/marginTop20"
-        android:background="@drawable/app_logo2"
-        android:contentDescription="@string/strLogo" />
+        <TextView
+            android:id="@+id/tvReceiveData2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/marginTop20"
+            android:fontFamily="@font/ralewaymedium"
+            android:lineHeight="@dimen/size24sp"
+            android:text="@string/welcomeMsg"
+            android:textColor="@color/colorPurpleLight"
+            android:textSize="@dimen/size20sp"
+            android:layout_below="@+id/tvReceiveData1"/>
 
-    <TextView
-        android:id="@+id/tvReceiveData1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/marginTop20"
-        android:fontFamily="@font/ralewaybold"
-        android:text="@string/welcome"
-        android:textColor="@color/colorWhite"
-        android:textSize="@dimen/size25"
-        app:layout_constraintTop_toBottomOf="@id/app_logo" />
+        <TextView
+            android:id="@+id/tvReceiveData3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/marginTop20"
+            android:fontFamily="@font/ralewayregular"
+            android:lineHeight="@dimen/size24sp"
+            android:text="@string/Info"
+            android:textColor="@color/colorLightGrey"
+            android:textSize="@dimen/size16sp"
+            android:layout_below="@+id/tvReceiveData2" />
 
-    <TextView
-        android:id="@+id/tvReceiveData2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/marginTop20"
-        android:fontFamily="@font/ralewaymedium"
-        android:lineHeight="@dimen/size24sp"
-        android:text="@string/welcomeMsg"
-        android:textColor="@color/colorPurpleLight"
-        android:textSize="@dimen/size20sp"
-        app:layout_constraintTop_toBottomOf="@id/tvReceiveData1" />
+        <Button
+            android:id="@+id/signout_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/marginTop40"
+            android:background="@drawable/button_radius"
+            android:padding="@dimen/padding_all_10"
+            android:text="@string/sign_out_btn"
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/size18sp"
+            android:layout_below="@+id/tvReceiveData3"
+            android:onClick="goToMainActivity"/>
 
-    <TextView
-        android:id="@+id/tvReceiveData3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/marginTop20"
-        android:fontFamily="@font/ralewayregular"
-        android:lineHeight="@dimen/size24sp"
-        android:text="@string/Info"
-        android:textColor="@color/colorLightGrey"
-        android:textSize="@dimen/size16sp"
-        app:layout_constraintTop_toBottomOf="@id/tvReceiveData2" />
+   </RelativeLayout>
+</ScrollView>
 
-    <Button
-        android:id="@+id/signout_btn"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/marginTop40"
-        android:background="@drawable/button_radius"
-        android:padding="@dimen/padding_all_10"
-        android:text="@string/sign_out_btn"
-        android:textColor="@color/colorWhite"
-        android:textSize="@dimen/size18sp"
-        app:layout_constraintTop_toBottomOf="@+id/tvReceiveData3" />
-
-    </LinearLayout>
-
-    </ScrollView>
-
-</RelativeLayout>

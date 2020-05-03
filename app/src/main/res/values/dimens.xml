@@ -3,6 +3,7 @@
     <dimen name="size12sp">12sp</dimen>
     <dimen name="size14sp">14sp</dimen>
     <dimen name="size16sp">16sp</dimen>
+    <dimen name="size17sp">17sp</dimen>
     <dimen name="size18sp">18sp</dimen>
     <dimen name="size20sp">20sp</dimen>
     <dimen name="size24sp">24sp</dimen>
@@ -29,14 +30,15 @@
     <dimen name="guide_right_10">10dp</dimen>
     <dimen name="width_0">0dp</dimen>
 
-    <dimen name="icon_w30">30dp</dimen>
-    <dimen name="icon_h30">30dp</dimen>
+    <dimen name="icon_w40">40dp</dimen>
+    <dimen name="icon_h40">40dp</dimen>
     <dimen name="logo_width80">80dp</dimen>
     <dimen name="logo_height80">80dp</dimen>
     <dimen name="btn_height44">44dp</dimen>
     <dimen name="dob_width_278">278dp</dimen>
     <dimen name="select_btn44">44dp</dimen>
     <dimen name="marginTop18">18dp</dimen>
-
+    <dimen name="mEnd10">10dp</dimen>
+    <dimen name="mStart10">10dp</dimen>
 
 </resources>

@@ -1,8 +1,11 @@
 package com.example.helloworld;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.DialogFragment;
 
 import android.app.DatePickerDialog;
+import android.app.Dialog;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
@@ -12,6 +15,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.TextClock;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -19,43 +25,36 @@ import java.util.regex.Pattern;
 
 public class MainActivity extends AppCompatActivity {
 
-    // Password pattern
-    private static final Pattern PASSWORD_PATTERN =
-            Pattern.compile("^" +
+    private static final Pattern PASSWORD_PATTERN = Pattern.compile("^" +
                     "(?=.*[a-zA-Z])" +      //any letter
                    // "(?=.*[@#$%^&+=])" +    //at least 1 special character
                     "(?=\\S+$)" +           //no white spaces
-                    ".{4,}" +               //at least 4 characters
+                    ".{5,}" +               //at least 5 characters
                     "$");
 
     DatePickerDialog.OnDateSetListener setListener;
-    long date;
 
-    // Variable declarations
-    private EditText birthdate;
+    private TextView tvBirthdate;
     private EditText etUsername;
     private EditText etFullname;
     private EditText etEmail;
     private EditText etPassword;
+    private int age;
+    private Button btnSelectDate;
 
-    // onCreate Method
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        birthdate = findViewById(R.id.birthdate);
+        tvBirthdate = findViewById(R.id.tvBirthdate);
         etUsername = findViewById(R.id.etUsername);
         etFullname = findViewById(R.id.etFullname);
         etEmail = findViewById(R.id.etEmail);
         etPassword = findViewById(R.id.etPassword);
+        btnSelectDate = findViewById(R.id.btnSelectDate);
 
-        Button btnSelectDatea = findViewById(R.id.btnSelectDate);
-        Button btnSignup = findViewById(R.id.signup_btn);
-
-
-        // Select Date Button and DatePicker
-        btnSelectDatea.setOnClickListener(new View.OnClickListener(){
+        btnSelectDate.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
                 Calendar calendar = Calendar.getInstance();
@@ -72,143 +71,118 @@ public class MainActivity extends AppCompatActivity {
 
         setListener = new DatePickerDialog.OnDateSetListener() {
             @Override
-            public void onDateSet(DatePicker view, int year, int month, int day) {
+            public void onDateSet(DatePicker view, int year, int month, int day) { Calendar c = Calendar.getInstance();
+            int currentYear = c.get(Calendar.YEAR);
+            int currentMonth = c.get(Calendar.MONTH);
+            int currentDay = c.get(Calendar.DAY_OF_MONTH);
 
-                Calendar c = Calendar.getInstance();
-                c.set(Calendar.YEAR, year);
-                c.set(Calendar.MONTH, month);
-                c.set(Calendar.DAY_OF_MONTH, day);
-                String format = new SimpleDateFormat("dd.mm.yyyy").format(c.getTime());
-                birthdate.setText(format);
+            c.set(Calendar.YEAR, year);
+            c.set(Calendar.MONTH, month);
+            c.set(Calendar.DAY_OF_MONTH, day);
+            String format = new SimpleDateFormat(Constants.KEY_DOB).format(c.getTime());
 
-                calculateAge(c.getTimeInMillis());
+            age = currentYear - year;
+            if ((month > currentMonth) || (month == currentMonth && day > currentDay)) {
+                age--;
+            }
+            if (age < 1) {
+                age = 0;
+            }
+            tvBirthdate.setText(format);
             }
         };
 
-
-        // Sing Up Button
-        btnSignup.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v) {
-
-                if ( validateUsername(etUsername) && validateFullname(etFullname) && validateEmail(etEmail) && calculateAge(date) && validatePassword(etPassword) ) {
-
-                    Intent intent = new Intent(MainActivity.this, SecondActivity.class);
-                    intent.putExtra("user_name", etUsername.getText().toString());
-                    intent.putExtra("full_name", etFullname.getText().toString());
-                    intent.putExtra("email", etEmail.getText().toString());
-                    intent.putExtra("password", etPassword.getText().toString());
-
-                    startActivity(intent);
-                    finish();
-                }
-            }
-        });
-
     } // onCreate
 
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        etUsername.setText(Constants.KEY_EMPTY);
+        etFullname.setText(Constants.KEY_EMPTY);
+        etEmail.setText(Constants.KEY_EMPTY);
+        tvBirthdate.setText(Constants.KEY_EMPTY);
+        etPassword.setText(Constants.KEY_EMPTY);
+    }
 
-    // Calculate Age
-    boolean calculateAge(long date) {
-        Calendar dob = Calendar.getInstance();
-        dob.setTimeInMillis(date);
-        Calendar today = Calendar.getInstance();
-        int age = today.get(Calendar.YEAR) - dob.get(Calendar.YEAR);
+    @Override
+    protected void onSaveInstanceState(@NonNull Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putString(Constants.KEY_USERNAME, etUsername.getText().toString());
+        outState.putString(Constants.KEY_FULLNAME, etFullname.getText().toString());
+        outState.putString(Constants.KEY_EMAIL, etEmail.getText().toString());
+        outState.putString(Constants.KEY_DOB, tvBirthdate.getText().toString());
+        outState.putString(Constants.KEY_PASS, etPassword.getText().toString());
+    }
 
-        String birthdateInput = birthdate.getText().toString().trim();
-
-        if (birthdateInput.isEmpty()) {
-            birthdate.setError("Field can't be empty.");
-            return false;
+    @Override
+    protected void onRestoreInstanceState(@NonNull Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+        if(savedInstanceState.containsKey(Constants.KEY_USERNAME)) {
+            etUsername.setText( (String) savedInstanceState.get(Constants.KEY_USERNAME));
         }
-        else if (age < 18) {
-            birthdate.setError("You are too young to signup.");
-            return false;
+
+        if(savedInstanceState.containsKey(Constants.KEY_FULLNAME)) {
+            etFullname.setText((String) savedInstanceState.get(Constants.KEY_FULLNAME));
         }
-        else {
-            birthdate.setError(null);
-            return true;
+
+        if(savedInstanceState.containsKey(Constants.KEY_EMAIL)) {
+            etEmail.setText((String) savedInstanceState.get(Constants.KEY_EMAIL));
+        }
+
+        if(savedInstanceState.containsKey(Constants.KEY_DOB)) {
+            tvBirthdate.setText((String) savedInstanceState.get(Constants.KEY_DOB));
+        }
+
+        if(savedInstanceState.containsKey(Constants.KEY_PASS)) {
+            etPassword.setText((String) savedInstanceState.get(Constants.KEY_PASS));
         }
     }
 
+    private boolean isFormValid() {
 
-    // Validate Username
-    boolean validateUsername(EditText etUsername) {
-
-        String usernameInput = etUsername.getText().toString().trim();
-
-        if (usernameInput.isEmpty()) {
-            etUsername.setError("Field can't be empty.");
-            return false;
-        }
-        else if (usernameInput.length() > 15) {
-            etUsername.setError("Username is too long.");
-            return false;
-        }
-        else {
-            etUsername.setError(null);
-            return true;
-        }
-    }
-
-
-    // Validate Email
-    boolean validateEmail(EditText etEmail) {
-
-        String emailInput = etEmail.getText().toString().trim();
-
-        if (!emailInput.isEmpty() && Patterns.EMAIL_ADDRESS.matcher(emailInput).matches()) {
-//            Toast.makeText(this, "Email Validated Successfully!", Toast.LENGTH_SHORT).show();
-            return true;
-        }
-        else if (emailInput.isEmpty())
-        {
-            etEmail.setError("Field can't be empty.");
-            return false;
-        } else {
-//            Toast.makeText(this, "Invalid email address!", Toast.LENGTH_SHORT).show();
-            etEmail.setError("Invalid Email Address.");
-            return false;
-        }
-    }
-
-
-    // Validate Fullname
-    boolean validateFullname(EditText etFullname) {
-
-        String fullnameInput = etFullname.getText().toString().trim();
-
-        if (fullnameInput.isEmpty()) {
-            etFullname.setError("Field can't be empty.");
-            return false;
-        }
-        else if (fullnameInput.length() > 30) {
-            etFullname.setError("Your name is too long.");
-            return false;
-        }
-        else {
-            etFullname.setError(null);
-            return true;
-        }
-    }
-
-
-    // Validate Password
-    boolean validatePassword(EditText etPassword) {
-
+        boolean isValid = true;
         String passwordInput = etPassword.getText().toString().trim();
 
-        if (passwordInput.isEmpty()) {
-            etPassword.setError("Field can't be empty.");
-            return false;
+        if (etUsername.getText().toString().isEmpty() ||
+                (etFullname.getText().toString().isEmpty() ||
+                        (etEmail.getText().toString().isEmpty() ||
+                                (tvBirthdate.getText().toString().isEmpty() ||
+                                        (etPassword.getText().toString().isEmpty() ))))) {
+            isValid = false;
+            Toast.makeText(this, R.string.allFieldsRequired, Toast.LENGTH_SHORT).show();
+        }
+        else if (!android.util.Patterns.EMAIL_ADDRESS.matcher(etEmail.getText().toString().trim()).matches()) {
+            isValid = false;
+            Toast.makeText(this, R.string.enterValidEmail, Toast.LENGTH_SHORT).show();
+        }
+        else if (tvBirthdate.getText().toString().isEmpty()) {
+            isValid = false;
+            Toast.makeText(this, R.string.selectDOB, Toast.LENGTH_SHORT).show();
+        }
+        else if (age < 18) {
+            isValid = false;
+            Toast.makeText(this, R.string.tooYoung, Toast.LENGTH_SHORT).show();
         }
         else if (!PASSWORD_PATTERN.matcher(passwordInput).matches()) {
-            etPassword.setError("Password too weak.");
-            return false;
+           isValid = false;
+            Toast.makeText(this, R.string.passwordWeak, Toast.LENGTH_SHORT).show();
         }
         else {
-            etPassword.setError(null);
             return true;
+        }
+        return isValid;
+    }
+
+
+    public void goToNextActivity(View view) {
+        if(isFormValid()){
+            Intent intent = new Intent(this, SecondActivity.class);
+            intent.putExtra(Constants.KEY_USERNAME, etUsername.getText().toString());
+            intent.putExtra(Constants.KEY_FULLNAME, etFullname.getText().toString());
+            intent.putExtra(Constants.KEY_EMAIL, etEmail.getText().toString());
+            intent.putExtra(Constants.KEY_DOB, tvBirthdate.getText().toString());
+            intent.putExtra(Constants.KEY_PASS, etPassword.getText().toString());
+            startActivity(intent);
         }
     }
 
