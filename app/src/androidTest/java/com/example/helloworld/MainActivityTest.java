@@ -1,7 +1,5 @@
 package com.example.helloworld;
 
-import android.content.Context;
-import androidx.test.espresso.Espresso;
 import androidx.test.espresso.action.ViewActions;
 import androidx.test.ext.junit.rules.ActivityScenarioRule;
 import androidx.test.ext.junit.runners.AndroidJUnit4;
@@ -12,17 +10,14 @@ import org.junit.runner.RunWith;
 
 import static androidx.test.espresso.Espresso.onView;
 import static androidx.test.espresso.action.ViewActions.click;
+import static androidx.test.espresso.action.ViewActions.closeSoftKeyboard;
 import static androidx.test.espresso.action.ViewActions.typeText;
 import static androidx.test.espresso.assertion.ViewAssertions.matches;
-import static androidx.test.espresso.matcher.ViewMatchers.isDisplayed;
 import static androidx.test.espresso.matcher.ViewMatchers.withId;
 import static androidx.test.espresso.matcher.ViewMatchers.withText;
-import static androidx.test.platform.app.InstrumentationRegistry.getInstrumentation;
 
 @RunWith(AndroidJUnit4.class)
 public class MainActivityTest {
-
-    private Context context = getInstrumentation().getTargetContext();
 
     @Rule
     public ActivityScenarioRule<MainActivity> activityScenarioRule
@@ -39,26 +34,20 @@ public class MainActivityTest {
 
     @Test
     public void hasValidUsername() {
-        onView(withId(R.id.etUsername)).check(matches(isDisplayed()));
-        Espresso.closeSoftKeyboard();
-        onView(withId(R.id.signup_btn)).perform(click());
-        onView(withId(R.id.btnSelectDate)).perform(click());
+        onView(withId(R.id.etUsername)).perform(typeText(Constants.TEST_KEY_USERNAME), closeSoftKeyboard());
+        onView(withId(R.id.etUsername)).check(matches(withText(Constants.TEST_KEY_USERNAME)));
     }
 
     @Test
     public void hasValidFullname() {
-        onView(withId(R.id.etUsername)).check(matches(isDisplayed()));
-        Espresso.closeSoftKeyboard();
-        onView(withId(R.id.signup_btn)).perform(click());
-        onView(withId(R.id.btnSelectDate)).perform(click());
+        onView(withId(R.id.etFullname)).perform(typeText(Constants.TEST_KEY_FULLNAME), closeSoftKeyboard());
+        onView(withId(R.id.etFullname)).check(matches(withText(Constants.TEST_KEY_FULLNAME)));
     }
 
     @Test
     public void hasValidEmail() {
-        onView(withId(R.id.etEmail)).check(matches(isDisplayed()));
-        Espresso.closeSoftKeyboard();
-        onView(withId(R.id.signup_btn)).perform(click());
-        onView(withId(R.id.btnSelectDate)).perform(click());
+        onView(withId(R.id.etEmail)).perform(typeText(Constants.TEST_KEY_EMAIL), closeSoftKeyboard());
+        onView(withId(R.id.etEmail)).check(matches(withText(Constants.TEST_KEY_EMAIL)));
     }
 
     @Test
@@ -68,10 +57,8 @@ public class MainActivityTest {
 
     @Test
     public void hasValidPassword() {
-        onView(withId(R.id.etPassword)).check(matches(isDisplayed()));
-        Espresso.closeSoftKeyboard();
-        onView(withId(R.id.signup_btn)).perform(click());
-        onView(withId(R.id.btnSelectDate)).perform(click());
+        onView(withId(R.id.etPassword)).perform(typeText(Constants.TEST_KEY_PASSWORD), closeSoftKeyboard());
+        onView(withId(R.id.etPassword)).check(matches(withText(Constants.TEST_KEY_PASSWORD)));
     }
 
     @Test
