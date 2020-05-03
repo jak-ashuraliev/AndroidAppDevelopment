@@ -40,9 +40,9 @@ public class MainActivityTest {
     public void hasValidUsername() {
         onView(withId(R.id.etUsername)).perform(typeText(context.getString(R.string.testUsername)));
         Espresso.closeSoftKeyboard();
-        onView(withId(R.id.etUsername)).check(matches(withText(R.string.testUsername)));
         onView(withId(R.id.signup_btn)).perform(click());
         onView(withId(R.id.btnSelectDate)).perform(click());
+        onView(withId(R.id.etUsername)).check(matches(withText(R.string.testUsername)));
     }
 
     @Test
@@ -56,18 +56,18 @@ public class MainActivityTest {
     public void hasValidFullname() {
         onView(withId(R.id.etFullname)).perform(typeText(context.getString(R.string.testFullName)));
         Espresso.closeSoftKeyboard();
-        onView(withId(R.id.etFullname)).check(matches(withText(R.string.testFullName)));
         onView(withId(R.id.signup_btn)).perform(click());
         onView(withId(R.id.btnSelectDate)).perform(click());
+        onView(withId(R.id.etFullname)).check(matches(withText(R.string.testFullName)));
     }
 
     @Test
     public void hasValidEmail() {
         onView(withId(R.id.etEmail)).perform(typeText(context.getString(R.string.testEmail)));
         Espresso.closeSoftKeyboard();
-        onView(withId(R.id.etEmail)).check(matches(withText(R.string.testEmail)));
         onView(withId(R.id.signup_btn)).perform(click());
         onView(withId(R.id.btnSelectDate)).perform(click());
+        onView(withId(R.id.etEmail)).check(matches(withText(R.string.testEmail)));
     }
 
     @Test
@@ -79,14 +79,17 @@ public class MainActivityTest {
     public void hasValidPassword() {
         onView(withId(R.id.etPassword)).perform(typeText(context.getString(R.string.testPassword)));
         Espresso.closeSoftKeyboard();
-        onView(withId(R.id.etPassword)).check(matches(withText(R.string.testPassword)));
         onView(withId(R.id.signup_btn)).perform(click());
         onView(withId(R.id.btnSelectDate)).perform(click());
+        onView(withId(R.id.etPassword)).check(matches(withText(R.string.testPassword)));
     }
 
     @Test
     public void hasButtonSignup() {
         onView(withId(R.id.signup_btn)).perform(ViewActions.scrollTo()).perform(click());
     }
+
+
+
 
 }
