@@ -15,6 +15,8 @@ import static androidx.test.espresso.action.ViewActions.typeText;
 import static androidx.test.espresso.assertion.ViewAssertions.matches;
 import static androidx.test.espresso.matcher.ViewMatchers.withId;
 import static androidx.test.espresso.matcher.ViewMatchers.withText;
+import static androidx.test.espresso.matcher.ViewMatchers.isDisplayed;
+
 
 @RunWith(AndroidJUnit4.class)
 public class MainActivityTest {
@@ -22,6 +24,11 @@ public class MainActivityTest {
     @Rule
     public ActivityScenarioRule<MainActivity> activityScenarioRule
             = new ActivityScenarioRule<>(MainActivity.class);
+
+    @Test
+    public void hasLogo() {
+        onView(withId(R.id.app_logo)).check(matches(isDisplayed()));
+    }
 
     @Test
     public void hasTextOnScreen() {
@@ -59,11 +66,6 @@ public class MainActivityTest {
     public void hasValidPassword() {
         onView(withId(R.id.etPassword)).perform(typeText(Constants.TEST_KEY_PASSWORD), closeSoftKeyboard());
         onView(withId(R.id.etPassword)).check(matches(withText(Constants.TEST_KEY_PASSWORD)));
-    }
-
-    @Test
-    public void hasButtonSignup() {
-        onView(withId(R.id.signup_btn)).perform(click());
     }
 
 }
