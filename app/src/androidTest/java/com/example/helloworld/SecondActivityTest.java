@@ -9,6 +9,7 @@ import org.junit.runner.RunWith;
 
 import static androidx.test.espresso.Espresso.onView;
 import static androidx.test.espresso.assertion.ViewAssertions.matches;
+import static androidx.test.espresso.matcher.ViewMatchers.isDisplayed;
 import static androidx.test.espresso.matcher.ViewMatchers.withId;
 import static androidx.test.espresso.matcher.ViewMatchers.withText;
 
@@ -18,6 +19,11 @@ public class SecondActivityTest {
     @Rule
     public ActivityScenarioRule<SecondActivity> activityScenarioRule
             = new ActivityScenarioRule<>(SecondActivity.class);
+
+    @Test
+    public void hasLogo() {
+        onView(withId(R.id.app_logo)).check(matches(isDisplayed()));
+    }
 
     @Test
     public void hasWelcomeMsgScreen() {

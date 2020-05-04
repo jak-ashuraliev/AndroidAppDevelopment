@@ -1,29 +1,22 @@
 package com.example.helloworld;
 
+import android.app.DatePickerDialog;
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.DatePicker;
+import android.widget.EditText;
+import android.widget.TextView;
+import android.widget.Toast;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.DialogFragment;
 
-import android.app.DatePickerDialog;
-import android.app.Dialog;
-import android.content.Intent;
-import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
-import android.os.Bundle;
-import android.util.Patterns;
-import android.view.View;
-import android.widget.Button;
-import android.widget.DatePicker;
-import android.widget.EditText;
-import android.widget.TextClock;
-import android.widget.TextView;
-import android.widget.Toast;
-
-import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.regex.Pattern;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements DatePickerDialog.OnDateSetListener {
 
     private static final Pattern PASSWORD_PATTERN = Pattern.compile("^" +
                     "(?=.*[a-zA-Z])" +      //any letter
@@ -32,67 +25,53 @@ public class MainActivity extends AppCompatActivity {
                     ".{5,}" +               //at least 5 characters
                     "$");
 
-    DatePickerDialog.OnDateSetListener setListener;
-
     private TextView tvBirthdate;
     private EditText etUsername;
     private EditText etFullname;
     private EditText etEmail;
     private EditText etPassword;
     private int age;
-    private Button btnSelectDate;
+    private TextView errorMsg;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        tvBirthdate = findViewById(R.id.tvBirthdate);
+        errorMsg = findViewById(R.id.errorMsg);
         etUsername = findViewById(R.id.etUsername);
         etFullname = findViewById(R.id.etFullname);
         etEmail = findViewById(R.id.etEmail);
+        tvBirthdate = findViewById(R.id.tvBirthdate);
         etPassword = findViewById(R.id.etPassword);
-        btnSelectDate = findViewById(R.id.btnSelectDate);
+    }
 
-        btnSelectDate.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v) {
-                Calendar calendar = Calendar.getInstance();
-                final int year = calendar.get(Calendar.YEAR);
-                final int month = calendar.get(Calendar.MONTH);
-                final int day = calendar.get(Calendar.DAY_OF_MONTH);
+    public void showDatePickerDialog(View v) {
+        DialogFragment newFragment = new DatePickerFragment();
+        newFragment.show(getSupportFragmentManager(), "datePicker");
+    }
 
-                DatePickerDialog datePickerDialog = new DatePickerDialog(
-                        MainActivity.this, android.R.style.Theme_Holo_Light_Dialog_MinWidth, setListener, year, month, day);
-                datePickerDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-                datePickerDialog.show();
-            }
-        });
+    @Override
+    public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
+        Calendar c = Calendar.getInstance();
+        tvBirthdate = findViewById(R.id.tvBirthdate);
+        StringBuilder date = new StringBuilder();
+        month = month + 1;
+        date.append(month).append('/').append(dayOfMonth).append('/').append(year);
+        tvBirthdate.setText(date);
 
-        setListener = new DatePickerDialog.OnDateSetListener() {
-            @Override
-            public void onDateSet(DatePicker view, int year, int month, int day) { Calendar c = Calendar.getInstance();
-            int currentYear = c.get(Calendar.YEAR);
-            int currentMonth = c.get(Calendar.MONTH);
-            int currentDay = c.get(Calendar.DAY_OF_MONTH);
+        int currentYear = c.get(Calendar.YEAR);
+        int currentMonth = c.get(Calendar.MONTH);
+        int currentDay = c.get(Calendar.DAY_OF_MONTH);
 
-            c.set(Calendar.YEAR, year);
-            c.set(Calendar.MONTH, month);
-            c.set(Calendar.DAY_OF_MONTH, day);
-            String format = new SimpleDateFormat(Constants.KEY_DOB).format(c.getTime());
-
-            age = currentYear - year;
-            if ((month > currentMonth) || (month == currentMonth && day > currentDay)) {
-                age--;
-            }
-            if (age < 1) {
-                age = 0;
-            }
-            tvBirthdate.setText(format);
-            }
-        };
-
-    } // onCreate
+        age = currentYear - year;
+        if ((month > currentMonth) || (month == currentMonth && dayOfMonth > currentDay)) {
+            age--;
+        }
+        if (age < 1) {
+            age = 0;
+        }
+    }
 
     @Override
     protected void onRestart() {
@@ -100,6 +79,7 @@ public class MainActivity extends AppCompatActivity {
         etUsername.setText(Constants.KEY_EMPTY);
         etFullname.setText(Constants.KEY_EMPTY);
         etEmail.setText(Constants.KEY_EMPTY);
+        tvBirthdate.setText((Constants.KEY_DOB));
         tvBirthdate.setText(Constants.KEY_EMPTY);
         etPassword.setText(Constants.KEY_EMPTY);
     }
@@ -110,7 +90,9 @@ public class MainActivity extends AppCompatActivity {
         outState.putString(Constants.KEY_USERNAME, etUsername.getText().toString());
         outState.putString(Constants.KEY_FULLNAME, etFullname.getText().toString());
         outState.putString(Constants.KEY_EMAIL, etEmail.getText().toString());
-        outState.putString(Constants.KEY_DOB, tvBirthdate.getText().toString());
+        if (!tvBirthdate.getText().toString().isEmpty()) {
+            outState.putString(Constants.KEY_DOB, tvBirthdate.getText().toString());
+        }
         outState.putString(Constants.KEY_PASS, etPassword.getText().toString());
     }
 
@@ -120,19 +102,15 @@ public class MainActivity extends AppCompatActivity {
         if(savedInstanceState.containsKey(Constants.KEY_USERNAME)) {
             etUsername.setText( (String) savedInstanceState.get(Constants.KEY_USERNAME));
         }
-
         if(savedInstanceState.containsKey(Constants.KEY_FULLNAME)) {
             etFullname.setText((String) savedInstanceState.get(Constants.KEY_FULLNAME));
         }
-
         if(savedInstanceState.containsKey(Constants.KEY_EMAIL)) {
             etEmail.setText((String) savedInstanceState.get(Constants.KEY_EMAIL));
         }
-
-        if(savedInstanceState.containsKey(Constants.KEY_DOB)) {
-            tvBirthdate.setText((String) savedInstanceState.get(Constants.KEY_DOB));
+        if (savedInstanceState.containsKey(Constants.KEY_DOB)) {
+            tvBirthdate.setText(savedInstanceState.getString(Constants.KEY_DOB));
         }
-
         if(savedInstanceState.containsKey(Constants.KEY_PASS)) {
             etPassword.setText((String) savedInstanceState.get(Constants.KEY_PASS));
         }
@@ -142,6 +120,8 @@ public class MainActivity extends AppCompatActivity {
 
         boolean isValid = true;
         String passwordInput = etPassword.getText().toString().trim();
+        StringBuilder throwMsg = new StringBuilder();
+        errorMsg.setText(R.string.EMPTY_MSG);
 
         if (etUsername.getText().toString().isEmpty() ||
                 (etFullname.getText().toString().isEmpty() ||
@@ -154,18 +134,22 @@ public class MainActivity extends AppCompatActivity {
         else if (!android.util.Patterns.EMAIL_ADDRESS.matcher(etEmail.getText().toString().trim()).matches()) {
             isValid = false;
             Toast.makeText(this, R.string.enterValidEmail, Toast.LENGTH_SHORT).show();
+            throwMsg.append(getString(R.string.ERROR_MSG_EMAIL));
         }
         else if (tvBirthdate.getText().toString().isEmpty()) {
             isValid = false;
             Toast.makeText(this, R.string.selectDOB, Toast.LENGTH_SHORT).show();
+            throwMsg.append(getString(R.string.ERROR_MSG_DOB));
         }
         else if (age < 18) {
             isValid = false;
             Toast.makeText(this, R.string.tooYoung, Toast.LENGTH_SHORT).show();
+            throwMsg.append(getString(R.string.ERROR_MSG_DOB));
         }
         else if (!PASSWORD_PATTERN.matcher(passwordInput).matches()) {
            isValid = false;
             Toast.makeText(this, R.string.passwordWeak, Toast.LENGTH_SHORT).show();
+            throwMsg.append(getString(R.string.ERROR_MSG_PASSWORD));
         }
         else {
             return true;
@@ -173,8 +157,7 @@ public class MainActivity extends AppCompatActivity {
         return isValid;
     }
 
-
-    public void goToNextActivity(View view) {
+    public void goToSecondActivity(View view) {
         if(isFormValid()){
             Intent intent = new Intent(this, SecondActivity.class);
             intent.putExtra(Constants.KEY_USERNAME, etUsername.getText().toString());
@@ -185,6 +168,7 @@ public class MainActivity extends AppCompatActivity {
             startActivity(intent);
         }
     }
+
 
 
 } // MainActivity

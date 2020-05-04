@@ -42,4 +42,12 @@
     <string name="selectDOB">Select birth date</string>
     <string name="tooYoung">You are too young to register</string>
     <string name="passwordWeak">Your password is weak</string>
+
+    <!-- ERROR MSG -->
+    <string name="ERROR_MSG_USERNAME">Please enter username</string>
+    <string name="ERROR_MSG_FULLNAME">Please enter a username</string>
+    <string name="ERROR_MSG_EMAIL">Please enter valid email</string>
+    <string name="ERROR_MSG_DOB">You are too young, must be at 18 to register</string>
+    <string name="ERROR_MSG_PASSWORD">Password is to weak</string>
+    <string name="EMPTY_MSG"></string>
 </resources>
