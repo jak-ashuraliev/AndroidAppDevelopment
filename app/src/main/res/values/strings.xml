@@ -2,34 +2,45 @@
 
     <!--  MAIN ACTIVITY-->
     <string name="app_name">Login</string>
-    <string name="jak_ashuraliev">By: Jak Ashuraliev | April 24, 2020</string>
+    <string name="jak_ashuraliev">By: Jak Ashuraliev | May 4, 2020</string>
     <string name="date">Date: April 26, 2020</string>
-    <string name="get_started">Let\'s Get Started!</string>
+    <string name="get_started">Let\'s Find Your Date!</string>
     <string name="signup_to_continue">Please signup to continue</string>
     <string name="ralewaymedium">\@fonts/ralewaymedium</string>
         <string name="have_account_login">Already have account? <a href="#">Login</a>
     </string>
     <string name="hint_username">Username</string>
-    <string name="hint_full_name">Full Name</string>
+    <string name="hint_first_name">First Name</string>
+    <string name="hint_last_name">Last Name</string>
     <string name="hint_birthdate">Date of Birth</string>
     <string name="hint_email">Email</string>
-    <string name="hint_password">Password</string>
+    <string name="hint_occupation">Occupation</string>
+    <string name="hint_description">Description</string>
     <string name="hint_confirm_password">Confirm Password</string>
     <string name="sign_up_btn">Sign Up</string>
     <string name="sign_up_with">Sign up with</string>
 
-    <!-- SECOND ACTIVITY -->
-    <string name="welcome">Hello,</string>
+    <!-- PROFILE ACTIVITY -->
+    <string name="welcome"></string>
     <string name="Info">userInfo</string>
     <string name="welcomeMsg">Thank you for signing up! \nBelow you will find your account information:</string>
     <string name="sign_out_btn">Sign Out</string>
     <string name="select_date_btn">Select Date</string>
     <string name="strLogo">Logo</string>
     <string name="USERNAME">USERNAME: \t\t</string>
-    <string name="FULL_NAME">FULL NAME: \t</string>
+    <string name="FIRST_NAME">FIRST NAME: \t</string>
+    <string name="LAST_NAME">LAST NAME: \t</string>
+    <string name="BIRTH_DATE">BIRTH DATE: \t</string>
+    <string name="YEARS_OLD">years old</string>
     <string name="EMAIL">EMAIL: \t\t\t\t\t\t\t</string>
-    <string name="PASSWORD">PASSWORD: \t</string>
+    <string name="OCCUPATION"><b>Occupation:</b>\t</string>
+    <string name="DESCRIPTION"><b>Description:</b>\t</string>
     <string name="exclamation">!</string>
+    <string name="profile_photo">profile_photo</string>
+    <string name="userDisplayName">userDisplayName</string>
+    <string name="ageContainer">AgeContainer</string>
+    <string name="occupationContainer">OccupationContainer</string>
+    <string name="descriptionContainer">DescriptionContainer</string>
 
     <!-- UNIT TEST-->
     <string name="testUsername">jashuraliev</string>
@@ -37,17 +48,23 @@
     <string name="testEmail">myemail@gmail.com</string>
     <string name="testDOB">01/02/1984</string>
     <string name="testPassword">mypassword</string>
+
     <string name="allFieldsRequired">All fields are required</string>
     <string name="enterValidEmail">Enter valid email address</string>
     <string name="selectDOB">Select birth date</string>
     <string name="tooYoung">You are too young to register</string>
-    <string name="passwordWeak">Your password is weak</string>
+    <string name="enterOccupation">Enter your occupation</string>
+    <string name="enterDescription">Enter your description</string>
 
     <!-- ERROR MSG -->
     <string name="ERROR_MSG_USERNAME">Please enter username</string>
-    <string name="ERROR_MSG_FULLNAME">Please enter a username</string>
+    <string name="ERROR_MSG_FIRSTNAME">Please enter your first name</string>
+    <string name="ERROR_MSG_LASTNAME">Please enter your last name</string>
     <string name="ERROR_MSG_EMAIL">Please enter valid email</string>
     <string name="ERROR_MSG_DOB">You are too young, must be at 18 to register</string>
-    <string name="ERROR_MSG_PASSWORD">Password is to weak</string>
+    <string name="ERROR_MSG_OCCUPATION">Please enter your occupation</string>
+    <string name="ERROR_MSG_DESCRIPTION">Please enter your description</string>
     <string name="EMPTY_MSG"></string>
+
+
 </resources>

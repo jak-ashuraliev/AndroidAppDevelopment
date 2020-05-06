@@ -13,12 +13,13 @@
 
             <ImageView
                 android:id="@+id/app_logo"
-                android:layout_width="@dimen/logo_width80"
-                android:layout_height="@dimen/logo_height80"
+                android:layout_width="@dimen/logo_width100"
+                android:layout_height="@dimen/logo_height100"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="@dimen/marginTop20"
-                android:background="@drawable/app_logo2"
+                android:background="@drawable/app_logo"
                 android:contentDescription="@string/strLogo" />
+
             <TextView
                 android:id="@+id/textView"
                 android:layout_width="wrap_content"
@@ -41,6 +42,7 @@
 
             <TextView
                 android:id="@+id/errorMsg"
+                android:text="@string/EMPTY_MSG"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/textView1"
@@ -64,13 +66,27 @@
                 android:importantForAutofill="no" />
 
             <EditText
-                android:id="@+id/etFullname"
+                android:id="@+id/etFirstname"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/etUsername"
                 android:layout_marginTop="@dimen/marginTop20"
                 android:background="@drawable/edit_text_bg"
-                android:hint="@string/hint_full_name"
+                android:hint="@string/hint_first_name"
+                android:inputType="text"
+                android:padding="@dimen/padding_all_10"
+                android:textColor="@color/colorWhite"
+                android:textColorHint="@color/colorGrey"
+                android:importantForAutofill="no" />
+
+            <EditText
+                android:id="@+id/etLastname"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/etFirstname"
+                android:layout_marginTop="@dimen/marginTop20"
+                android:background="@drawable/edit_text_bg"
+                android:hint="@string/hint_last_name"
                 android:inputType="textPersonName"
                 android:padding="@dimen/padding_all_10"
                 android:textColor="@color/colorWhite"
@@ -81,7 +97,7 @@
                 android:id="@+id/etEmail"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/etFullname"
+                android:layout_below="@+id/etLastname"
                 android:layout_marginTop="@dimen/marginTop20"
                 android:background="@drawable/edit_text_bg"
                 android:hint="@string/hint_email"
@@ -121,14 +137,28 @@
                 android:onClick="showDatePickerDialog"/>
 
             <EditText
-                android:id="@+id/etPassword"
+                android:id="@+id/etOccupation"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/tvBirthdate"
                 android:layout_marginTop="@dimen/marginTop20"
                 android:background="@drawable/edit_text_bg"
-                android:hint="@string/hint_password"
-                android:inputType="textPassword"
+                android:hint="@string/hint_occupation"
+                android:inputType="text"
+                android:padding="@dimen/padding_all_10"
+                android:textColor="@color/colorWhite"
+                android:textColorHint="@color/colorGrey"
+                android:importantForAutofill="no" />
+
+            <EditText
+                android:id="@+id/etDescription"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/etOccupation"
+                android:layout_marginTop="@dimen/marginTop20"
+                android:background="@drawable/edit_text_bg"
+                android:hint="@string/hint_description"
+                android:inputType="textMultiLine"
                 android:padding="@dimen/padding_all_10"
                 android:textColor="@color/colorWhite"
                 android:textColorHint="@color/colorGrey"
@@ -138,7 +168,7 @@
                 android:id="@+id/signup_btn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/etPassword"
+                android:layout_below="@+id/etDescription"
                 android:layout_marginTop="@dimen/marginTop20"
                 android:background="@drawable/button_radius"
                 android:padding="@dimen/padding_all_10"

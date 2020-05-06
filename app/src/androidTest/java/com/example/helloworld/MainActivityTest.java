@@ -79,13 +79,6 @@ public class MainActivityTest {
     }
 
     @Test
-    public void hasNoEmail() {
-        onView(withId(R.id.etEmail)).perform(clearText());
-        closeSoftKeyboard();
-        onView(withId(R.id.signup_btn)).perform(click());
-    }
-
-    @Test
     public void hasNoUsername() {
         onView(withId(R.id.etUsername)).perform(typeText(context.getString(R.string.testUsername)));
         onView(withId(R.id.etFullname)).perform(typeText(context.getString(R.string.testFullName)));

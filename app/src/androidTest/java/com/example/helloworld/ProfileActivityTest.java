@@ -14,11 +14,11 @@ import static androidx.test.espresso.matcher.ViewMatchers.withId;
 import static androidx.test.espresso.matcher.ViewMatchers.withText;
 
 @RunWith(AndroidJUnit4.class)
-public class SecondActivityTest {
+public class ProfileActivityTest {
 
     @Rule
-    public ActivityScenarioRule<SecondActivity> activityScenarioRule
-            = new ActivityScenarioRule<>(SecondActivity.class);
+    public ActivityScenarioRule<ProfileActivity> activityScenarioRule
+            = new ActivityScenarioRule<>(ProfileActivity.class);
 
     @Test
     public void hasLogo() {

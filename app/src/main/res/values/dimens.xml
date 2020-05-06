@@ -7,13 +7,15 @@
     <dimen name="size18sp">18sp</dimen>
     <dimen name="size20sp">20sp</dimen>
     <dimen name="size24sp">24sp</dimen>
-    <dimen name="size25">25sp</dimen>
+    <dimen name="size25sp">25sp</dimen>
+    <dimen name="size26sp">26sp</dimen>
     <dimen name="size35">35sp</dimen>
 
     <dimen name="padding_all_10">10dp</dimen>
     <dimen name="padding18">18dp</dimen>
     <dimen name="padding19">19dp</dimen>
     <dimen name="padding20">20dp</dimen>
+    <dimen name="radius5">5dp</dimen>
 
     <dimen name="marginRight5">5dp</dimen>
     <dimen name="marginTop5">5dp</dimen>
@@ -33,14 +35,15 @@
 
     <dimen name="icon_w40">40dp</dimen>
     <dimen name="icon_h40">40dp</dimen>
-    <dimen name="logo_width80">80dp</dimen>
-    <dimen name="logo_height80">80dp</dimen>
+    <dimen name="logo_width100">100dp</dimen>
+    <dimen name="logo_height100">100dp</dimen>
     <dimen name="btn_height44">44dp</dimen>
     <dimen name="dob_width_278">278dp</dimen>
     <dimen name="select_btn44">44dp</dimen>
     <dimen name="marginTop18">18dp</dimen>
     <dimen name="mEnd10">10dp</dimen>
     <dimen name="mStart10">10dp</dimen>
+    <dimen name="imgHeight500dp">500dp</dimen>
 
 
 </resources>
