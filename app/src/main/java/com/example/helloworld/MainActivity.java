@@ -76,6 +76,7 @@ public class MainActivity extends AppCompatActivity implements DatePickerDialog.
     @Override
     protected void onRestart() {
         super.onRestart();
+        errorMsg.setText(Constants.KEY_EMPTY);
         etUsername.setText(Constants.KEY_EMPTY);
         etFirstname.setText(Constants.KEY_EMPTY);
         etLastname.setText(Constants.KEY_EMPTY);

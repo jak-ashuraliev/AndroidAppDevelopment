@@ -39,8 +39,7 @@ public class ProfileActivity extends AppCompatActivity {
 
         if (bundle != null) {
            firstname = bundle.getString(Constants.KEY_FIRSTNAME).trim();
-//           birthDate = bundle.getString(Constants.KEY_DOB).trim();
-            profileAge = bundle.getString(Constants.KEY_AGE).trim();
+           profileAge = bundle.getString(Constants.KEY_AGE).trim();
            occupation = bundle.getString(Constants.KEY_OCCUPATION).trim();
            description = bundle.getString(Constants.KEY_DESCRIPTION).trim();
         }

@@ -43,8 +43,9 @@
     <string name="descriptionContainer">DescriptionContainer</string>
 
     <!-- UNIT TEST-->
-    <string name="testUsername">jashuraliev</string>
-    <string name="testFullName">Jak Ashuraliev</string>
+    <string name="testUsername">jakashuraliev</string>
+    <string name="testFirstname">Jak</string>
+    <string name="testLastname">Ashuraliev</string>
     <string name="testEmail">myemail@gmail.com</string>
     <string name="testDOB">01/02/1984</string>
     <string name="testPassword">mypassword</string>
@@ -57,7 +58,7 @@
     <string name="enterDescription">Enter your description</string>
 
     <!-- ERROR MSG -->
-    <string name="ERROR_MSG_USERNAME">Please enter username</string>
+    <string name="ERROR_MSG_USERNAME">jakashuraliev</string>
     <string name="ERROR_MSG_FIRSTNAME">Please enter your first name</string>
     <string name="ERROR_MSG_LASTNAME">Please enter your last name</string>
     <string name="ERROR_MSG_EMAIL">Please enter valid email</string>

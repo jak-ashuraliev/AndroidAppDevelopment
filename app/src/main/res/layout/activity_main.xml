@@ -42,7 +42,6 @@
 
             <TextView
                 android:id="@+id/errorMsg"
-                android:text="@string/EMPTY_MSG"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/textView1"

@@ -16,6 +16,8 @@ import static androidx.test.espresso.matcher.ViewMatchers.withText;
 @RunWith(AndroidJUnit4.class)
 public class ProfileActivityTest {
 
+
+
     @Rule
     public ActivityScenarioRule<ProfileActivity> activityScenarioRule
             = new ActivityScenarioRule<>(ProfileActivity.class);
@@ -25,10 +27,6 @@ public class ProfileActivityTest {
         onView(withId(R.id.app_logo)).check(matches(isDisplayed()));
     }
 
-    @Test
-    public void hasWelcomeMsgScreen() {
-        onView(withId(R.id.tvReceiveData2)).check(matches(withText(R.string.welcomeMsg)));
-    }
 
     @Test
     public void hasButtonSignout() {

@@ -12,9 +12,12 @@ public class Constants {
     static final String KEY_EMPTY = "";
 
     static final String TEST_KEY_USERNAME = "jashuraliev01";
-    static final String TEST_KEY_FULLNAME = "Jak Ashuraliev";
-    static final String TEST_KEY_EMAIL = "ja_myemail@hotmail.com";
-    static final String TEST_KEY_DOB = "01/02/1984";
+    static final String TEST_KEY_FIRSTNAME = "Jak";
+    static final String TEST_KEY_LASTNAME = "Ashuraliev";
+    static final String TEST_KEY_EMAIL = "jakatemail@hotmail.com";
+    static final int TEST_YEAR = 1984;
+    static final int TEST_MONTH = 01;
+    static final int TEST_DAY = 02;
     static final String TEST_KEY_PASSWORD = "password123";
 }
 
