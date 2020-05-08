@@ -48,7 +48,9 @@
     <string name="testLastname">Ashuraliev</string>
     <string name="testEmail">myemail@gmail.com</string>
     <string name="testDOB">01/02/1984</string>
-    <string name="testPassword">mypassword</string>
+    <string name="testAge">30 years old</string>
+    <string name="testOccupation">Software Developer</string>
+    <string name="testDescription">Description of the person</string>
 
     <string name="allFieldsRequired">All fields are required</string>
     <string name="enterValidEmail">Enter valid email address</string>
