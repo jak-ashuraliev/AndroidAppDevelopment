@@ -15,7 +15,7 @@ import org.junit.runner.RunWith;
 import static androidx.test.espresso.Espresso.onView;
 import static androidx.test.espresso.action.ViewActions.clearText;
 import static androidx.test.espresso.action.ViewActions.click;
-import static androidx.test.espresso.action.ViewActions.closeSoftKeyboard;
+import static androidx.test.espresso.action.ViewActions.scrollTo;
 import static androidx.test.espresso.action.ViewActions.typeText;
 import static androidx.test.espresso.assertion.ViewAssertions.matches;
 import static androidx.test.espresso.contrib.PickerActions.setDate;
@@ -48,25 +48,29 @@ public class MainActivityTest {
 
     @Test
     public void hasValidUsername() {
-        onView(withId(R.id.etUsername)).perform(typeText(Constants.TEST_KEY_USERNAME), closeSoftKeyboard());
+        onView(withId(R.id.etUsername)).perform(typeText(Constants.TEST_KEY_USERNAME));
+        Espresso.closeSoftKeyboard();
         onView(withId(R.id.etUsername)).check(matches(withText(Constants.TEST_KEY_USERNAME)));
     }
 
     @Test
     public void hasValidFirstName() {
-        onView(withId(R.id.etFirstname)).perform(typeText(Constants.TEST_KEY_FIRSTNAME), closeSoftKeyboard());
+        onView(withId(R.id.etFirstname)).perform(typeText(Constants.TEST_KEY_FIRSTNAME));
+        Espresso.closeSoftKeyboard();
         onView(withId(R.id.etFirstname)).check(matches(withText(Constants.TEST_KEY_FIRSTNAME)));
     }
 
     @Test
     public void hasValidLastName() {
-        onView(withId(R.id.etLastname)).perform(typeText(Constants.TEST_KEY_FIRSTNAME), closeSoftKeyboard());
+        onView(withId(R.id.etLastname)).perform(typeText(Constants.TEST_KEY_FIRSTNAME));
+        Espresso.closeSoftKeyboard();
         onView(withId(R.id.etLastname)).check(matches(withText(Constants.TEST_KEY_FIRSTNAME)));
     }
 
     @Test
     public void hasValidEmail() {
-        onView(withId(R.id.etEmail)).perform(typeText(Constants.TEST_KEY_EMAIL), closeSoftKeyboard());
+        onView(withId(R.id.etEmail)).perform(typeText(Constants.TEST_KEY_EMAIL));
+        Espresso.closeSoftKeyboard();
         onView(withId(R.id.etEmail)).check(matches(withText(Constants.TEST_KEY_EMAIL)));
     }
 
@@ -80,8 +84,8 @@ public class MainActivityTest {
         onView(withId(R.id.btnSelectDate)).perform(ViewActions.scrollTo(), click());
         onView(withClassName(Matchers.equalTo(DatePicker.class.getName())))
                 .perform(setDate(Constants.TEST_YEAR, Constants.TEST_MONTH, Constants.TEST_DAY));
-        onView(withId(android.R.id.button1)).perform(click());
-        onView(withId(R.id.signup_btn)).perform(ViewActions.scrollTo(), click());
+        onView(withId(android.R.id.button1)).perform(scrollTo()).perform(click());
+        onView(withId(R.id.signup_btn)).perform(scrollTo()).perform(click());
     }
 
     @Test
@@ -92,11 +96,11 @@ public class MainActivityTest {
         onView(withId(R.id.etLastname)).perform(typeText(Constants.TEST_KEY_LASTNAME));
         onView(withId(R.id.etEmail)).perform(typeText(Constants.TEST_KEY_EMAIL));
         Espresso.closeSoftKeyboard();
-        onView(withId(R.id.btnSelectDate)).perform(click());
+        onView(withId(R.id.btnSelectDate)).perform(scrollTo()).perform(click());
         onView(withClassName(Matchers.equalTo(DatePicker.class.getName())))
                 .perform(setDate(Constants.TEST_YEAR, Constants.TEST_MONTH, Constants.TEST_DAY));
-        onView(withId(android.R.id.button1)).perform(click());
-        onView(withId(R.id.signup_btn)).perform(click());
+        onView(withId(android.R.id.button1)).perform(scrollTo()).perform(click());
+        onView(withId(R.id.signup_btn)).perform(scrollTo()).perform(click());
     }
 
     @Test
@@ -107,11 +111,11 @@ public class MainActivityTest {
         onView(withId(R.id.etLastname)).perform(typeText(Constants.TEST_KEY_LASTNAME));
         onView(withId(R.id.etEmail)).perform(typeText(Constants.TEST_KEY_EMAIL));
         Espresso.closeSoftKeyboard();
-        onView(withId(R.id.btnSelectDate)).perform(click());
+        onView(withId(R.id.btnSelectDate)).perform(scrollTo()).perform(click());
         onView(withClassName(Matchers.equalTo(DatePicker.class.getName())))
                 .perform(setDate(Constants.TEST_YEAR, Constants.TEST_MONTH, Constants.TEST_DAY));
-        onView(withId(android.R.id.button1)).perform(click());
-        onView(withId(R.id.signup_btn)).perform(click());
+        onView(withId(android.R.id.button1)).perform(scrollTo()).perform(click());
+        onView(withId(R.id.signup_btn)).perform(scrollTo()).perform(click());
     }
 
     @Test
@@ -122,11 +126,11 @@ public class MainActivityTest {
         onView(withId(R.id.etLastname)).perform(clearText());
         onView(withId(R.id.etEmail)).perform(typeText(Constants.TEST_KEY_EMAIL));
         Espresso.closeSoftKeyboard();
-        onView(withId(R.id.btnSelectDate)).perform(click());
+        onView(withId(R.id.btnSelectDate)).perform(scrollTo()).perform(click());
         onView(withClassName(Matchers.equalTo(DatePicker.class.getName())))
                 .perform(setDate(Constants.TEST_YEAR, Constants.TEST_MONTH, Constants.TEST_DAY));
-        onView(withId(android.R.id.button1)).perform(click());
-        onView(withId(R.id.signup_btn)).perform(click());
+        onView(withId(android.R.id.button1)).perform(scrollTo()).perform(click());
+        onView(withId(R.id.signup_btn)).perform(scrollTo()).perform(click());
     }
 
     @Test
@@ -137,11 +141,11 @@ public class MainActivityTest {
         onView(withId(R.id.etEmail)).perform(typeText(Constants.TEST_KEY_EMAIL));
         onView(withId(R.id.etEmail)).perform(clearText());
         Espresso.closeSoftKeyboard();
-        onView(withId(R.id.btnSelectDate)).perform(click());
+        onView(withId(R.id.btnSelectDate)).perform(scrollTo()).perform(click());
         onView(withClassName(Matchers.equalTo(DatePicker.class.getName())))
                 .perform(setDate(Constants.TEST_YEAR, Constants.TEST_MONTH, Constants.TEST_DAY));
-        onView(withId(android.R.id.button1)).perform(click());
-        onView(withId(R.id.signup_btn)).perform(click());
+        onView(withId(android.R.id.button1)).perform(scrollTo()).perform(click());
+        onView(withId(R.id.signup_btn)).perform(scrollTo()).perform(click());
     }
 
     @Test
@@ -151,16 +155,16 @@ public class MainActivityTest {
         onView(withId(R.id.etLastname)).perform(typeText(Constants.TEST_KEY_LASTNAME));
         onView(withId(R.id.etEmail)).perform(typeText(Constants.TEST_KEY_EMAIL));
         Espresso.closeSoftKeyboard();
-        onView(withId(R.id.btnSelectDate)).perform(click());
+        onView(withId(R.id.btnSelectDate)).perform(scrollTo()).perform(click());
         onView(withClassName(Matchers.equalTo(DatePicker.class.getName())))
                 .perform(setDate(Constants.TEST_YEAR, Constants.TEST_MONTH, Constants.TEST_DAY));
-        onView(withId(android.R.id.button1)).perform(click());
-        onView(withId(R.id.signup_btn)).perform(click());
+        onView(withId(android.R.id.button1)).perform(scrollTo()).perform(click());
+        onView(withId(R.id.signup_btn)).perform(scrollTo()).perform(click());
     }
 
     @Test
     public void hasValidBirthDate() {
-        onView(withId(R.id.btnSelectDate)).perform(ViewActions.scrollTo()).perform(click());
+        onView(withId(R.id.btnSelectDate)).perform(scrollTo()).perform(click());
         onView(withClassName(Matchers.equalTo(DatePicker.class.getName())))
                 .perform(setDate(Constants.TEST_YEAR, Constants.TEST_MONTH, Constants.TEST_DAY));
     }
