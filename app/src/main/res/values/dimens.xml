@@ -43,7 +43,7 @@
     <dimen name="marginTop18">18dp</dimen>
     <dimen name="mEnd10">10dp</dimen>
     <dimen name="mStart10">10dp</dimen>
-    <dimen name="imgHeight500dp">500dp</dimen>
+    <dimen name="imgHeight500dp">520dp</dimen>
 
 
 </resources>
