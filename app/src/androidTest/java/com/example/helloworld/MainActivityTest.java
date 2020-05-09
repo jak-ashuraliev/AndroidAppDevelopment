@@ -97,7 +97,7 @@ public class MainActivityTest {
 
     @Test
     public void userCanEnterUsername() {
-        onView(withId(R.id.etUsername)).perform(typeText(Constants.TEST_KEY_USERNAME));
+        onView(withId(R.id.etUsername)).check(matches(isDisplayed()));
         onView(withId(R.id.etUsername)).perform(clearText());
         onView(withId(R.id.etFirstname)).perform(typeText(Constants.TEST_KEY_FIRSTNAME));
         onView(withId(R.id.etLastname)).perform(typeText(Constants.TEST_KEY_LASTNAME));

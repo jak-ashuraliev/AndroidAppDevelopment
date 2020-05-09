@@ -9,6 +9,8 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 
 import static androidx.test.espresso.Espresso.onView;
+import static androidx.test.espresso.action.ViewActions.click;
+import static androidx.test.espresso.action.ViewActions.scrollTo;
 import static androidx.test.espresso.assertion.ViewAssertions.matches;
 import static androidx.test.espresso.matcher.ViewMatchers.isDisplayed;
 import static androidx.test.espresso.matcher.ViewMatchers.withEffectiveVisibility;
@@ -54,8 +56,10 @@ public class ProfileActivityTest {
 
     @Test
     public void hasButtonSignout() {
+        onView(withId(R.id.signout_btn)).perform(scrollTo());
         onView(withId(R.id.signout_btn)).check(matches(withEffectiveVisibility(ViewMatchers.Visibility.VISIBLE)));
-        onView(withId(R.id.signout_btn)).check(matches(isDisplayed()));
+        onView(withId(R.id.signout_btn)).perform(scrollTo()).check(matches(isDisplayed()));
+        onView(withId(R.id.signout_btn)).perform(scrollTo()).perform(click());
     }
 
 }
