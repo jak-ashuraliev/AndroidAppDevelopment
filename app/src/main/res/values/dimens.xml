@@ -12,6 +12,7 @@
     <dimen name="size35">35sp</dimen>
 
     <dimen name="padding_all_10">10dp</dimen>
+    <dimen name="padding10">10dp</dimen>
     <dimen name="padding18">18dp</dimen>
     <dimen name="padding19">19dp</dimen>
     <dimen name="padding20">20dp</dimen>
@@ -44,6 +45,7 @@
     <dimen name="mEnd10">10dp</dimen>
     <dimen name="mStart10">10dp</dimen>
     <dimen name="imgHeight500dp">520dp</dimen>
+    <dimen name="height0">0dp</dimen>
 
 
 </resources>

@@ -43,14 +43,14 @@
     <string name="descriptionContainer">DescriptionContainer</string>
 
     <!-- UNIT TEST-->
-    <string name="testUsername">jakashuraliev</string>
-    <string name="testFirstname">Jak</string>
-    <string name="testLastname">Ashuraliev</string>
-    <string name="testEmail">myemail@gmail.com</string>
-    <string name="testDOB">01/02/1984</string>
+    <string name="testUsername">Username</string>
+    <string name="testFirstname">First Name</string>
+    <string name="testLastname">Last Name</string>
+    <string name="testEmail">Email</string>
+    <string name="testDOB">Date of Birth</string>
     <string name="testAge">30 years old</string>
-    <string name="testOccupation">Software Developer</string>
-    <string name="testDescription">Description of the person</string>
+    <string name="testOccupation">Occupation</string>
+    <string name="testDescription">Description</string>
 
     <string name="allFieldsRequired">All fields are required</string>
     <string name="enterValidEmail">Enter valid email address</string>
@@ -68,6 +68,8 @@
     <string name="ERROR_MSG_OCCUPATION">Please enter your occupation</string>
     <string name="ERROR_MSG_DESCRIPTION">Please enter your description</string>
     <string name="EMPTY_MSG"></string>
+    <string name="matches">MATCHES</string>
+    <string name="settings">SETTINGS</string>
 
 
 </resources>
