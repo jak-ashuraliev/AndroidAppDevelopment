@@ -5,6 +5,7 @@
     android:layout_height="match_parent"
     tools:context=".ProfileActivity"
     android:background="@color/colorDarkBlue">
+
    <RelativeLayout
        android:layout_width="wrap_content"
        android:layout_height="wrap_content"
@@ -13,7 +14,7 @@
        <ImageView
            android:id="@+id/profile_photo"
            android:layout_width="match_parent"
-           android:layout_height="@dimen/imgHeight500dp"
+           android:layout_height="@dimen/imgHeight520dp"
            android:background="@drawable/profile_photo"
            android:contentDescription="@string/profile_photo" />
 
@@ -78,5 +79,6 @@
             android:onClick="goToMainActivity"/>
 
    </RelativeLayout>
+
 </ScrollView>
 

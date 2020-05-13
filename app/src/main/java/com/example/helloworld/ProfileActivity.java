@@ -41,23 +41,23 @@ public class ProfileActivity extends AppCompatActivity {
         profileFragment.setArguments(userInfo);
 
         Adapter adapter = new Adapter(getSupportFragmentManager(), getLifecycle());
-        adapter.addFragment(profileFragment, "PROFILE");
-        adapter.addFragment(new MatchesFragment(), "MATCHES");
-        adapter.addFragment(new SettingsFragment(), "SETTINGS");
+        adapter.addFragment(profileFragment, getString(R.string.fragTitlePROFILE));
+        adapter.addFragment(new MatchesFragment(), getString(R.string.fragTitleMATCHES));
+        adapter.addFragment(new SettingsFragment(), getString(R.string.fragTitleSETTINGS));
         viewPager.setAdapter(adapter);
 
         new TabLayoutMediator(tabLayout, viewPager, (tab, position) -> {
             if (position == 0)
             {
-                tab.setText("PROFILE");
+                tab.setText(R.string.fragTitlePROFILE);
             }
             else if (position == 1)
             {
-                tab.setText("MATCHES");
+                tab.setText(R.string.fragTitleMATCHES);
             }
             else if (position == 2)
             {
-                tab.setText("SETTINGS");
+                tab.setText(R.string.fragTitleSETTINGS);
             }
         }).attach();
 

@@ -2,12 +2,12 @@
 
     <!--  MAIN ACTIVITY-->
     <string name="app_name">Login</string>
-    <string name="jak_ashuraliev">By: Jak Ashuraliev | May 4, 2020</string>
+    <string name="jak_ashuraliev">By: Jak Ashuraliev | May 12, 2020</string>
     <string name="date">Date: April 26, 2020</string>
     <string name="get_started">Let\'s Find Your Date!</string>
     <string name="signup_to_continue">Please signup to continue</string>
     <string name="ralewaymedium">\@fonts/ralewaymedium</string>
-        <string name="have_account_login">Already have account? <a href="#">Login</a>
+    <string name="have_account_login">Already have account? <a href="#">Login</a>
     </string>
     <string name="hint_username">Username</string>
     <string name="hint_first_name">First Name</string>
@@ -70,6 +70,13 @@
     <string name="EMPTY_MSG"></string>
     <string name="matches">MATCHES</string>
     <string name="settings">SETTINGS</string>
+    <string name="toolbarTitle">Toolbar</string>
+
+    <!-- FRAGMENTS -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="fragTitlePROFILE">PROFILE</string>
+    <string name="fragTitleMATCHES">MATCHES</string>
+    <string name="fragTitleSETTINGS">SETTINGS</string>
 
 
 </resources>
