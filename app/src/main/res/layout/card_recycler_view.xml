@@ -6,5 +6,6 @@
     android:layout_height="match_parent"
     android:clipToPadding="false"
     android:scrollbars="vertical"
-    android:padding="@dimen/padding_all_10"
+    android:paddingBottom="@dimen/padding10"
+    android:paddingTop="@dimen/padding10"
     app:layout_behavior="@string/appbar_scrolling_view_behavior" />

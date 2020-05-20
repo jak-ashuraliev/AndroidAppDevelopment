@@ -28,6 +28,9 @@
     <dimen name="marginLeft">50dp</dimen>
     <dimen name="margin_right10">10dp</dimen>
     <dimen name="margin_left10">10dp</dimen>
+    <dimen name="margin10">10dp</dimen>
+    <dimen name="margin_right_40">40dp</dimen>
+    <dimen name="margin_right_20">20dp</dimen>
     <dimen name="marginTop80">80dp</dimen>
 
     <dimen name="guide_left_10">10dp</dimen>
@@ -46,6 +49,7 @@
     <dimen name="mStart10">10dp</dimen>
     <dimen name="imgHeight520dp">520dp</dimen>
     <dimen name="height0">0dp</dimen>
+    <dimen name="cornerRadius6dp">6dp</dimen>
 
 
 </resources>

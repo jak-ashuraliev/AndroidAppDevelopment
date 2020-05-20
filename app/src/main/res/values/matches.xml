@@ -6,14 +6,17 @@
         <item>Amy</item>
     </string-array>
     <string-array name="matchDescArr">
-        <item>Description of the match</item>
-        <item>Description of the match</item>
-        <item>Description of the match</item>
+        <item>Description of the match goes here.</item>
+        <item>Description of the match goes here.</item>
+        <item>Description of the match goes here.</item>
     </string-array>
     <integer-array name="matchImgArr">
         <item>@drawable/match_one</item>
         <item>@drawable/match_two</item>
         <item>@drawable/match_three</item>
     </integer-array>
-
+    <string-array name="matchTvActionsArr">
+        <item>ACTION:</item>
+    </string-array>
 </resources>
+

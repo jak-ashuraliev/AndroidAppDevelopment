@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -37,24 +38,43 @@ public class MatchesFragment extends Fragment {
         public ImageView matchImage;
         public TextView matchName;
         public TextView matchDes;
+        public TextView matchTvAction;
         public ImageButton like_btn;
 
         public ViewHolder(LayoutInflater inflater, ViewGroup parent) {
-
             super(inflater.inflate(R.layout.fragment_matches, parent, false));
-            matchImage = (ImageView) itemView.findViewById(R.id.matchImg);
-            matchName = (TextView) itemView.findViewById(R.id.matchName);
-            matchDes = (TextView) itemView.findViewById(R.id.matchDesc);
 
+            matchImage = itemView.findViewById(R.id.matchImg);
+            matchName = itemView.findViewById(R.id.matchName);
+            matchDes = itemView.findViewById(R.id.matchDesc);
+            matchTvAction = itemView.findViewById(R.id.tvAction);
+            like_btn = itemView.findViewById(R.id.like_btn);
+
+            Resources res = itemView.getResources();
+
+            like_btn.setOnClickListener(view -> {
+                if (like_btn.getTag().equals(R.string.UNLIKED)) {
+                    StringBuilder onClickLikeMsg = new StringBuilder(res.getString(R.string.UNLIKED)).append(matchName.getText());
+                    like_btn.setImageResource(R.drawable.ic_unliked_heart);
+                    like_btn.setTag(R.string.LIKED);
+                    Toast.makeText(itemView.getContext(), onClickLikeMsg, Toast.LENGTH_SHORT).show();
+                } else {
+                    StringBuilder onClickLikeMsg = new StringBuilder(res.getString(R.string.LIKED)).append(matchName.getText());
+                    like_btn.setImageResource(R.drawable.ic_liked_heart);
+                    like_btn.setTag(R.string.UNLIKED);
+                    Toast.makeText(itemView.getContext(), onClickLikeMsg, Toast.LENGTH_SHORT).show();
+                }
+            });
         }
     }
 
     public class ContentAdapter extends RecyclerView.Adapter<ViewHolder> {
 
         private static final int LENGTH = 6;
+        private final Drawable[] matchImages;
         private final String[] matchNames;
         private final String[] matchDescriptions;
-        private final Drawable[] matchImages;
+        private final String[] matchTvActions;
 
         public ContentAdapter(Context context) {
 
@@ -63,6 +83,7 @@ public class MatchesFragment extends Fragment {
             matchImages = new Drawable[a.length()];
             matchNames = resources.getStringArray(R.array.matchNamesArr);
             matchDescriptions = resources.getStringArray(R.array.matchDescArr);
+            matchTvActions = resources.getStringArray(R.array.matchTvActionsArr);
 
             for (int i = 0; i < matchImages.length; i++) {
                 matchImages[i] = a.getDrawable(i);
@@ -82,6 +103,7 @@ public class MatchesFragment extends Fragment {
             holder.matchImage.setImageDrawable(matchImages[position % matchImages.length]);
             holder.matchName.setText(matchNames[position % matchNames.length]);
             holder.matchDes.setText(matchDescriptions[position % matchDescriptions.length]);
+            holder.matchTvAction.setText(matchTvActions[position % matchTvActions.length]);
 
         }
 

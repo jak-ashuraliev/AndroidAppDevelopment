@@ -1,25 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/card_view"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_gravity="center"
-    android:foreground="?attr/selectableItemBackground">
+    android:layout_marginLeft="@dimen/padding10"
+    android:layout_marginRight="@dimen/padding10"
+    android:layout_marginBottom="@dimen/padding10"
+    android:foreground="?attr/selectableItemBackground"
+    android:orientation="vertical"
+    app:cardCornerRadius="@dimen/cornerRadius6dp">
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="@dimen/padding_all_10"
-        android:layout_marginBottom="10dp"
-        android:background="@color/colorBrightGrey">
+        android:paddingBottom="@dimen/padding20">
 
         <ImageView
             android:id="@+id/matchImg"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/margin10"
+            android:contentDescription="@string/match_image"
             android:scaleType="centerCrop"
-            android:layout_marginBottom="10dp"
             tools:src="@drawable/match_one" />
 
         <TextView
@@ -27,31 +32,63 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/matchImg"
-            tools:text="Name"
-            android:paddingBottom="@dimen/padding_all_10"
+            android:maxLines="1"
+            android:paddingStart="@dimen/padding10"
+            android:paddingEnd="@dimen/padding10"
+            android:textAppearance="@style/TextAppearance.AppCompat.Title"
             android:textColor="@color/colorPink"
             android:textSize="@dimen/size24sp"
-            android:textAppearance="@style/TextAppearance.AppCompat.Title" />
+            tools:text="@string/name_holder" />
 
         <TextView
             android:id="@+id/matchDesc"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/matchName"
-            tools:text="Description"
-            android:paddingBottom="@dimen/padding_all_10"
-            android:textSize="@dimen/size20sp"
             android:ellipsize="end"
-            android:singleLine="true" />
+            android:maxLines="1"
+            android:paddingStart="@dimen/padding10"
+            android:paddingEnd="@dimen/padding10"
+            android:singleLine="true"
+            android:textSize="@dimen/size20sp"
+            tools:text="@string/desc_holder" />
+
+        <TextView
+            android:id="@+id/tvAction"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/matchDesc"
+            android:paddingStart="@dimen/padding10"
+            android:paddingTop="@dimen/padding20"
+            android:paddingEnd="@dimen/padding10"
+            android:textColor="@color/colorBlue"
+            android:textSize="@dimen/size18sp"
+            tools:text="ACTION:" />
+
+        <ImageButton
+            android:id="@+id/share_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@id/tvAction"
+            android:layout_marginEnd="@dimen/margin_right_40"
+            android:layout_toStartOf="@id/like_btn"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/share_btn"
+            android:src="@drawable/share_btn"
+            android:textColor="?attr/colorPrimary" />
 
         <ImageButton
             android:id="@+id/like_btn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignEnd="@+id/matchDesc"
-            android:layout_alignBottom="@id/matchDesc"
-            android:textColor="?attr/colorPrimary"
-            android:background="@drawable/like"/>
+            android:layout_alignBottom="@id/tvAction"
+            android:layout_marginEnd="@dimen/margin_right_20"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/unliked_heart_btn"
+            android:src="@drawable/ic_unliked_heart"
+            android:tag="@string/UNLIKED"
+            android:textColor="?attr/colorPrimary" />
 
     </RelativeLayout>
 </androidx.cardview.widget.CardView>

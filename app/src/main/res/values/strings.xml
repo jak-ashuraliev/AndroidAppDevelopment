@@ -2,7 +2,7 @@
 
     <!--  MAIN ACTIVITY-->
     <string name="app_name">Login</string>
-    <string name="jak_ashuraliev">By: Jak Ashuraliev | May 12, 2020</string>
+    <string name="jak_ashuraliev">By: Jak Ashuraliev | May 20, 2020</string>
     <string name="date">Date: April 26, 2020</string>
     <string name="get_started">Let\'s Find Your Date!</string>
     <string name="signup_to_continue">Please signup to continue</string>
@@ -79,7 +79,15 @@
     <string name="fragTitleSETTINGS">SETTINGS</string>
 
     <string name="likeColorGrey">grey</string>
-    <string name="likeColorPink">Pink</string>
+    <string name="likeColorPinkLight">#FFCEAEBE</string>
+    <string name="likeColorPink">#C70067</string>
+    <string name="name_holder">Name</string>
+    <string name="desc_holder">Description</string>
+    <string name="UNLIKED">"You Unliked "</string>
+    <string name="LIKED">"You Liked "</string>
+    <string name="match_image">Match Image</string>
+    <string name="unliked_heart_btn">Unliked heart button</string>
+    <string name="share_btn">share button</string>
 
 
 </resources>
