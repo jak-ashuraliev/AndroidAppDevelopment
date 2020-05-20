@@ -69,7 +69,7 @@ public class ProfileActivity extends AppCompatActivity {
 
     public static class Adapter extends FragmentStateAdapter {
 
-        private final List<Fragment> fragments = new ArrayList<>();
+        private List<Fragment> fragments = new ArrayList<>();
 
         Adapter(FragmentManager fragmentManager, Lifecycle lifecycle) {
             super(fragmentManager, lifecycle);

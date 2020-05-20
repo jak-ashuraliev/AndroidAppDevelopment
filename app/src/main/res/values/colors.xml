@@ -9,6 +9,7 @@
     <color name="colorDarkBlueLight">#303c48</color>
     <color name="colorGrey">#515a63</color>
     <color name="colorLightGrey">#b7b7b7</color>
+    <color name="colorBrightGrey">#FFEDEDED</color>
     <color name="colorDarkGrey">#7f7f7f</color>
     <color name="colorPink">#c51162</color>
     <color name="colorPurple">#DA51DD</color>

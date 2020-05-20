@@ -1,5 +1,6 @@
 package com.example.helloworld;
 
+import androidx.test.espresso.action.ViewActions;
 import androidx.test.espresso.matcher.ViewMatchers;
 import androidx.test.ext.junit.rules.ActivityScenarioRule;
 import androidx.test.ext.junit.runners.AndroidJUnit4;
@@ -60,6 +61,18 @@ public class ProfileActivityTest {
         onView(withId(R.id.signout_btn)).check(matches(withEffectiveVisibility(ViewMatchers.Visibility.VISIBLE)));
         onView(withId(R.id.signout_btn)).perform(scrollTo()).check(matches(isDisplayed()));
         onView(withId(R.id.signout_btn)).perform(scrollTo()).perform(click());
+    }
+
+    @Test
+    public void hasTextOnFragments() {
+        onView(withId(R.id.viewpager)).perform(ViewActions.swipeLeft());
+        onView(withId(R.id.viewpager)).perform(ViewActions.swipeLeft());
+        onView(withId(R.id.tvMatches)).check(matches(withText(R.string.fragTitleMATCHES)));
+        onView(withId(R.id.viewpager)).perform(ViewActions.swipeRight());
+        onView(withId(R.id.viewpager)).perform(ViewActions.swipeLeft());
+        onView(withId(R.id.tvSettings)).check(matches(withText(R.string.fragTitleSETTINGS)));
+        onView(withId(R.id.viewpager)).perform(ViewActions.swipeRight());
+        onView(withId(R.id.viewpager)).perform(ViewActions.swipeRight());
     }
 
 }

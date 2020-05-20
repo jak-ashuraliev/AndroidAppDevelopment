@@ -78,5 +78,8 @@
     <string name="fragTitleMATCHES">MATCHES</string>
     <string name="fragTitleSETTINGS">SETTINGS</string>
 
+    <string name="likeColorGrey">grey</string>
+    <string name="likeColorPink">Pink</string>
+
 
 </resources>
