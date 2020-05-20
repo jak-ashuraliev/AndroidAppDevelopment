@@ -1,6 +1,5 @@
 package com.example.helloworld;
 
-import androidx.test.espresso.action.ViewActions;
 import androidx.test.espresso.matcher.ViewMatchers;
 import androidx.test.ext.junit.rules.ActivityScenarioRule;
 import androidx.test.ext.junit.runners.AndroidJUnit4;
@@ -12,6 +11,8 @@ import org.junit.runner.RunWith;
 import static androidx.test.espresso.Espresso.onView;
 import static androidx.test.espresso.action.ViewActions.click;
 import static androidx.test.espresso.action.ViewActions.scrollTo;
+import static androidx.test.espresso.action.ViewActions.swipeLeft;
+import static androidx.test.espresso.action.ViewActions.swipeRight;
 import static androidx.test.espresso.assertion.ViewAssertions.matches;
 import static androidx.test.espresso.matcher.ViewMatchers.isDisplayed;
 import static androidx.test.espresso.matcher.ViewMatchers.withEffectiveVisibility;
@@ -65,14 +66,14 @@ public class ProfileActivityTest {
 
     @Test
     public void hasTextOnFragments() {
-        onView(withId(R.id.viewpager)).perform(ViewActions.swipeLeft());
-        onView(withId(R.id.viewpager)).perform(ViewActions.swipeLeft());
-        onView(withId(R.id.tvMatches)).check(matches(withText(R.string.fragTitleMATCHES)));
-        onView(withId(R.id.viewpager)).perform(ViewActions.swipeRight());
-        onView(withId(R.id.viewpager)).perform(ViewActions.swipeLeft());
+        onView(withId(R.id.viewpager)).perform(swipeLeft());
+        onView(withId(R.id.viewpager)).perform(swipeLeft());
+        onView(withId(R.id.viewpager)).perform(swipeRight());
+        onView(withId(R.id.viewpager)).perform(swipeLeft());
         onView(withId(R.id.tvSettings)).check(matches(withText(R.string.fragTitleSETTINGS)));
-        onView(withId(R.id.viewpager)).perform(ViewActions.swipeRight());
-        onView(withId(R.id.viewpager)).perform(ViewActions.swipeRight());
+        onView(withId(R.id.viewpager)).perform(swipeRight());
+        onView(withId(R.id.viewpager)).perform(swipeRight());
     }
+
 
 }
