@@ -65,17 +65,17 @@
             android:textSize="@dimen/size18sp"
             tools:text="ACTION:" />
 
-        <ImageButton
-            android:id="@+id/share_btn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignBottom="@id/tvAction"
-            android:layout_marginEnd="@dimen/margin_right_40"
-            android:layout_toStartOf="@id/like_btn"
-            android:background="?attr/selectableItemBackgroundBorderless"
-            android:contentDescription="@string/share_btn"
-            android:src="@drawable/share_btn"
-            android:textColor="?attr/colorPrimary" />
+<!--        <ImageButton-->
+<!--            android:id="@+id/share_btn"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_alignBottom="@id/tvAction"-->
+<!--            android:layout_marginEnd="@dimen/margin_right_40"-->
+<!--            android:layout_toStartOf="@id/like_btn"-->
+<!--            android:background="?attr/selectableItemBackgroundBorderless"-->
+<!--            android:contentDescription="@string/share_btn"-->
+<!--            android:src="@drawable/share_btn"-->
+<!--            android:textColor="?attr/colorPrimary" />-->
 
         <ImageButton
             android:id="@+id/like_btn"

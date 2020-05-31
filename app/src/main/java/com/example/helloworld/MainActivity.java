@@ -81,7 +81,7 @@ public class MainActivity extends AppCompatActivity implements DatePickerDialog.
         etFirstname.setText(Constants.KEY_EMPTY);
         etLastname.setText(Constants.KEY_EMPTY);
         etEmail.setText(Constants.KEY_EMPTY);
-        tvBirthdate.setText((Constants.KEY_DOB));
+        tvBirthdate.setText((Constants.KEY_EMPTY));
         etOccupation.setText(Constants.KEY_EMPTY);
         etDescription.setText(Constants.KEY_EMPTY);
     }

@@ -5,6 +5,7 @@ import android.widget.DatePicker;
 
 import androidx.test.espresso.Espresso;
 import androidx.test.espresso.action.ViewActions;
+import androidx.test.espresso.contrib.PickerActions;
 import androidx.test.espresso.matcher.ViewMatchers;
 import androidx.test.ext.junit.rules.ActivityScenarioRule;
 import androidx.test.ext.junit.runners.AndroidJUnit4;
@@ -14,6 +15,8 @@ import org.hamcrest.Matchers;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+
+import java.util.Calendar;
 
 import static androidx.test.espresso.Espresso.onView;
 import static androidx.test.espresso.action.ViewActions.clearText;
@@ -235,5 +238,57 @@ public class MainActivityTest {
         device.setOrientationNatural();
 
     }
+
+
+
+    @Test
+    public void testDatePickerAgeTooYoung(){
+        Calendar c = Calendar.getInstance();
+        int currentDay = c.get(Calendar.DAY_OF_MONTH);
+        int currentMonth = c.get(Calendar.MONTH) + 1;
+        int currentYear = c.get(Calendar.YEAR);
+
+        onView(withId(R.id.btnSelectDate)).perform(scrollTo()).perform(click());
+        onView(withClassName(Matchers.equalTo(DatePicker.class.getName()))).perform(PickerActions.setDate(currentYear - 10, 1, 1));
+
+        onView(withId(R.id.btnSelectDate)).perform(scrollTo()).perform(click());
+        onView(withClassName(Matchers.equalTo(DatePicker.class.getName()))).perform(PickerActions.setDate(currentYear-18, currentMonth + 3, 1));
+
+        onView(withId(R.id.btnSelectDate)).perform(scrollTo()).perform(click());
+        onView(withClassName(Matchers.equalTo(DatePicker.class.getName()))).perform(PickerActions.setDate(currentYear-18, currentMonth, currentDay + 3));
+
+    }
+
+
+
+//    @Test
+//    public void passDataToProfileActivity() {
+//        onView(withId(R.id.etUsername)).perform(typeText(Constants.TEST_KEY_USERNAME));
+//        onView(withId(R.id.etFirstname)).perform(typeText(Constants.TEST_KEY_FIRSTNAME));
+//        onView(withId(R.id.etLastname)).perform(typeText(Constants.TEST_KEY_LASTNAME));
+//        onView(withId(R.id.etEmail)).perform(typeText(Constants.TEST_KEY_EMAIL));
+//        onView(withId(R.id.btnSelectDate)).perform(scrollTo()).perform(click());
+//        onView(withClassName(Matchers.equalTo(DatePicker.class.getName())))
+//                .perform(setDate(Constants.TEST_YEAR, Constants.TEST_MONTH, Constants.TEST_DAY));
+//        onView(withId(android.R.id.button1)).perform(click());
+//        onView(withId(R.id.btnSelectDate)).perform(scrollTo());
+//        onView(withId(R.id.signup_btn)).check(matches(withEffectiveVisibility(ViewMatchers.Visibility.VISIBLE)));
+//        onView(withId(R.id.signup_btn)).perform(scrollTo()).check(matches(isDisplayed()));
+//        onView(withId(R.id.signup_btn)).perform(scrollTo()).perform(click());
+//        try {
+//            Intents.init();
+//            onView(withId(R.id.signup_btn)).perform(click());
+//            intended(hasComponent(ProfileActivity.class.getName()));
+//            intended(hasExtra(Constants.TEST_KEY_USERNAME, "jashualiev"));
+//            intended(hasExtra(Constants.TEST_KEY_FIRSTNAME, "Jak"));
+//            intended(hasExtra(Constants.TEST_KEY_LASTNAME, "Ashuraliev"));
+//            intended(hasExtra(Constants.TEST_KEY_EMAIL, "myemail@hotmail.com"));
+//            intended(hasExtra(Constants.KEY_DOB, "Date of Birth"));
+//            intended(hasExtra(Constants.TEST_KEY_OCCUPATION, "Software Developer"));
+//            intended(hasExtra(Constants.TEST_KEY_DESCRIPTION, "Description of the user goes here."));
+//        } finally {
+//            Intents.release();
+//        }
+//    }
 
 }

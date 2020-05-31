@@ -75,5 +75,11 @@ public class ProfileActivityTest {
         onView(withId(R.id.viewpager)).perform(swipeRight());
     }
 
+    @Test
+    public void hasSettingTabOnProfileAcitivyt(){
+        onView(withText("SETTINGS")).perform(click());
+        onView(withId(R.id.tvSettings)).check(matches(withText("SETTINGS")));
+    }
+
 
 }

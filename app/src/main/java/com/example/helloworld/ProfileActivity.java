@@ -19,6 +19,8 @@ import java.util.List;
 
 public class ProfileActivity extends AppCompatActivity {
 
+    private FirebaseViewModel firebaseViewModel;
+
     private ProfileFragment profileFragment;
     private MatchesFragment matchesFragment;
     private SettingsFragment settingsFragment;
@@ -44,6 +46,15 @@ public class ProfileActivity extends AppCompatActivity {
         adapter.addFragment(profileFragment, getString(R.string.fragTitlePROFILE));
         adapter.addFragment(new MatchesFragment(), getString(R.string.fragTitleMATCHES));
         adapter.addFragment(new SettingsFragment(), getString(R.string.fragTitleSETTINGS));
+
+        Bundle matches = new Bundle();
+        firebaseViewModel = new FirebaseViewModel();
+
+        firebaseViewModel.getMatchItems(
+                (ArrayList<MatchItem> matchItems) -> matches.putParcelableArrayList(Constants.COLLECTION_MATCHES, matchItems)
+        );
+        matchesFragment.setArguments(matches);
+
         viewPager.setAdapter(adapter);
 
         new TabLayoutMediator(tabLayout, viewPager, (tab, position) -> {
