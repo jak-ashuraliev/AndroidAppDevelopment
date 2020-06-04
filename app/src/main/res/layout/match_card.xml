@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/card_view"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:layout_marginLeft="@dimen/padding10"
+    android:layout_marginRight="@dimen/padding10"
+    android:layout_marginBottom="@dimen/padding10"
+    android:foreground="?attr/selectableItemBackground"
+    android:orientation="vertical"
+    app:cardCornerRadius="@dimen/cornerRadius6dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="@dimen/padding20">
+
+        <ImageView
+            android:id="@+id/matchImg"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/img_height_420dp"
+            android:layout_marginBottom="@dimen/margin20"
+            android:contentDescription="@string/match_image"
+            android:scaleType="centerCrop"
+            tools:src="@drawable/match_one" />
+
+        <TextView
+            android:id="@+id/matchName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/matchImg"
+            android:maxLines="1"
+            android:paddingStart="@dimen/padding10"
+            android:paddingEnd="@dimen/padding10"
+            android:textAppearance="@style/TextAppearance.AppCompat.Title"
+            android:textColor="@color/colorPink"
+            android:textSize="@dimen/size24sp"
+            tools:text="@string/name_holder" />
+
+        <TextView
+            android:id="@+id/matchOccup"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/matchName"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:paddingStart="@dimen/padding10"
+            android:paddingEnd="@dimen/padding10"
+            android:singleLine="true"
+            android:textSize="@dimen/size20sp"
+            tools:text="@string/occup_holder" />
+
+        <TextView
+            android:id="@+id/matchDesc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/matchOccup"
+            android:layout_marginTop="@dimen/marginTop10"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:paddingStart="@dimen/padding10"
+            android:paddingEnd="@dimen/padding10"
+            android:singleLine="true"
+            android:textColor="@color/colorDarkBlue"
+            android:textSize="@dimen/size20sp"
+            tools:text="@string/desc_holder" />
+
+        <ImageButton
+            android:id="@+id/like_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignEnd="@+id/matchName"
+            android:layout_alignBottom="@id/matchName"
+            android:layout_marginEnd="@dimen/margin_right_20"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/unliked_heart_btn"
+            android:src="@drawable/ic_unliked_heart"
+            android:tag="@string/UNLIKED"
+            android:textColor="?attr/colorPrimary" />
+
+    </RelativeLayout>
+</androidx.cardview.widget.CardView>

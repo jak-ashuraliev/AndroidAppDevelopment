@@ -194,7 +194,7 @@
                 android:layout_height="@dimen/icon_h40"
                 android:layout_below="@id/signup_with"
                 android:layout_centerHorizontal="true"
-                android:background="@drawable/linkedin_icon"
+                android:background="@drawable/fb_icon"
                 android:contentDescription="@string/strLogo" />
 
             <TextView

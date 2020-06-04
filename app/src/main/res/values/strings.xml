@@ -2,7 +2,7 @@
 
     <!--  MAIN ACTIVITY-->
     <string name="app_name">Login</string>
-    <string name="jak_ashuraliev">By: Jak Ashuraliev | May 20, 2020</string>
+    <string name="jak_ashuraliev">By: Jak Ashuraliev | June 1, 2020</string>
     <string name="date">Date: April 26, 2020</string>
     <string name="get_started">Let\'s Find Your Date!</string>
     <string name="signup_to_continue">Please signup to continue</string>
@@ -82,6 +82,7 @@
     <string name="likeColorPinkLight">#FFCEAEBE</string>
     <string name="likeColorPink">#C70067</string>
     <string name="name_holder">Name</string>
+    <string name="occup_holder">Occupation</string>
     <string name="desc_holder">Description</string>
     <string name="UNLIKED">"You Unliked "</string>
     <string name="LIKED">"You Liked "</string>

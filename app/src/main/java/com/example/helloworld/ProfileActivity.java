@@ -2,28 +2,20 @@ package com.example.helloworld;
 
 import android.os.Bundle;
 import android.view.View;
-
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.lifecycle.Lifecycle;
+import androidx.fragment.app.FragmentActivity;
 import androidx.viewpager2.adapter.FragmentStateAdapter;
 import androidx.viewpager2.widget.ViewPager2;
-
 import com.google.android.material.tabs.TabLayout;
 import com.google.android.material.tabs.TabLayoutMediator;
-
 import java.util.ArrayList;
 import java.util.List;
 
-public class ProfileActivity extends AppCompatActivity {
+public class ProfileActivity extends AppCompatActivity implements MatchesFragment.LikedClickListener {
 
-    private FirebaseViewModel firebaseViewModel;
-
-    private ProfileFragment profileFragment;
-    private MatchesFragment matchesFragment;
-    private SettingsFragment settingsFragment;
+    private MatchViewModel viewModel;
     private TabLayout tabLayout;
     private ViewPager2 viewPager;
 
@@ -32,28 +24,30 @@ public class ProfileActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tabbed_layout);
 
+        Bundle userInfo = getIntent().getExtras();
+
+        ProfileFragment profileFragment = new ProfileFragment();
+        MatchesFragment matchesFragment = new MatchesFragment();
+        SettingsFragment settingsFragment = new SettingsFragment();
+
+        profileFragment.setArguments(userInfo);
         viewPager = findViewById(R.id.viewpager);
         tabLayout = findViewById(R.id.tablayout);
 
-        Bundle userInfo = getIntent().getExtras();
+        Adapter adapter = new Adapter(this);
+        adapter.addFragment(profileFragment);
+        adapter.addFragment(matchesFragment);
+        adapter.addFragment(settingsFragment);
 
-        profileFragment = new ProfileFragment();
-        matchesFragment = new MatchesFragment();
-        settingsFragment = new SettingsFragment();
-        profileFragment.setArguments(userInfo);
+        viewModel = new MatchViewModel();
 
-        Adapter adapter = new Adapter(getSupportFragmentManager(), getLifecycle());
-        adapter.addFragment(profileFragment, getString(R.string.fragTitlePROFILE));
-        adapter.addFragment(new MatchesFragment(), getString(R.string.fragTitleMATCHES));
-        adapter.addFragment(new SettingsFragment(), getString(R.string.fragTitleSETTINGS));
-
-        Bundle matches = new Bundle();
-        firebaseViewModel = new FirebaseViewModel();
-
-        firebaseViewModel.getMatchItems(
-                (ArrayList<MatchItem> matchItems) -> matches.putParcelableArrayList(Constants.COLLECTION_MATCHES, matchItems)
+        viewModel.getMatchItems(
+                (ArrayList<MatchItem> matchItems) -> {
+                    Bundle bundle = new Bundle();
+                    bundle.putParcelableArrayList(Constants.COLLECTION_MATCHES, matchItems);
+                    matchesFragment.setArguments(bundle);
+                }
         );
-        matchesFragment.setArguments(matches);
 
         viewPager.setAdapter(adapter);
 
@@ -71,19 +65,26 @@ public class ProfileActivity extends AppCompatActivity {
                 tab.setText(R.string.fragTitleSETTINGS);
             }
         }).attach();
-
     }
 
-    public void goToMainActivity(View view) {
-        finish();
+    @Override
+    public void LikedClickListener(MatchItem item) {
+        item.liked = !item.liked;
+        viewModel.updateMatchItem(item);
+    }
+
+    @Override
+    protected void onPause() {
+        viewModel.clear();
+        super.onPause();
     }
 
     public static class Adapter extends FragmentStateAdapter {
 
         private List<Fragment> fragments = new ArrayList<>();
 
-        Adapter(FragmentManager fragmentManager, Lifecycle lifecycle) {
-            super(fragmentManager, lifecycle);
+        Adapter(@NonNull FragmentActivity fragmentActivity) {
+            super(fragmentActivity);
         }
 
         @NonNull
@@ -92,7 +93,7 @@ public class ProfileActivity extends AppCompatActivity {
             return fragments.get(position);
         }
 
-        public void addFragment(Fragment fragment, String title) {
+        public void addFragment(Fragment fragment) {
             fragments.add(fragment);
         }
 
@@ -101,6 +102,10 @@ public class ProfileActivity extends AppCompatActivity {
             return fragments.size();
         }
 
+    }
+
+    public void goToMainActivity(View view) {
+        finish();
     }
 
 }
