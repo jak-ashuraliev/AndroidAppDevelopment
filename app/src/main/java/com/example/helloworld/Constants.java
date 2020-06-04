@@ -21,6 +21,8 @@ public class Constants {
     static final int TEST_YEAR = 1984;
     static final int TEST_MONTH = 01;
     static final int TEST_DAY = 02;
+    static final String TEST_FRAGMENT_SETTINGS = "SETTINGS";
+
 
     //    FIREBASE COLLECTION
     static final String collection_uid = "uid";

@@ -14,6 +14,7 @@ import static androidx.test.espresso.action.ViewActions.scrollTo;
 import static androidx.test.espresso.action.ViewActions.swipeLeft;
 import static androidx.test.espresso.action.ViewActions.swipeRight;
 import static androidx.test.espresso.assertion.ViewAssertions.matches;
+import static androidx.test.espresso.matcher.ViewMatchers.hasDescendant;
 import static androidx.test.espresso.matcher.ViewMatchers.isDisplayed;
 import static androidx.test.espresso.matcher.ViewMatchers.withEffectiveVisibility;
 import static androidx.test.espresso.matcher.ViewMatchers.withId;
@@ -81,5 +82,14 @@ public class ProfileActivityTest {
         onView(withId(R.id.tvSettings)).check(matches(withText("SETTINGS")));
     }
 
+    @Test
+    public void checkSettingsFragment() {
+        onView(withId(R.id.viewpager)).perform(swipeLeft());
+        onView(withId(R.id.viewpager)).perform(swipeLeft());
+        onView(withId(R.id.tvSettings)).check(matches(withText(Constants.TEST_FRAGMENT_SETTINGS)));
+        onView(withId(R.id.viewpager)).perform(swipeRight());
+        onView(withId(R.id.viewpager)).perform(swipeLeft());
+        onView(withId(R.id.tvSettings)).check(matches(withText(Constants.TEST_FRAGMENT_SETTINGS)));
+    }
 
 }
