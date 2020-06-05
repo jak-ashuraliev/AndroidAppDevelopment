@@ -1,5 +1,6 @@
 package com.example.helloworld;
 
+import android.content.Context;
 import android.os.RemoteException;
 import android.widget.DatePicker;
 
@@ -23,11 +24,9 @@ import static androidx.test.espresso.action.ViewActions.clearText;
 import static androidx.test.espresso.action.ViewActions.click;
 import static androidx.test.espresso.action.ViewActions.scrollTo;
 
-import static androidx.test.espresso.action.ViewActions.swipeLeft;
 import static androidx.test.espresso.action.ViewActions.typeText;
 import static androidx.test.espresso.assertion.ViewAssertions.matches;
 import static androidx.test.espresso.contrib.PickerActions.setDate;
-import static androidx.test.espresso.matcher.ViewMatchers.hasDescendant;
 import static androidx.test.espresso.matcher.ViewMatchers.isDisplayed;
 import static androidx.test.espresso.matcher.ViewMatchers.withClassName;
 import static androidx.test.espresso.matcher.ViewMatchers.withEffectiveVisibility;
@@ -39,6 +38,8 @@ import static androidx.test.platform.app.InstrumentationRegistry.getInstrumentat
 
 @RunWith(AndroidJUnit4.class)
 public class MainActivityTest {
+
+    private Context context = getInstrumentation().getTargetContext();
 
     @Rule
     public ActivityScenarioRule<MainActivity> activityScenarioRule
@@ -244,7 +245,6 @@ public class MainActivityTest {
         device.setOrientationRight();
         device.setOrientationNatural();
     }
-
 
 
 }
