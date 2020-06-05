@@ -63,7 +63,7 @@
     <string name="ERROR_MSG_USERNAME">jakashuraliev</string>
     <string name="ERROR_MSG_FIRSTNAME">Please enter your first name</string>
     <string name="ERROR_MSG_LASTNAME">Please enter your last name</string>
-    <string name="ERROR_MSG_EMAIL">Please enter valid email</string>
+    <string name="ERROR_MSG_EMAIL">Enter valid email address</string>
     <string name="ERROR_MSG_DOB">You are too young, must be at 18 to register</string>
     <string name="ERROR_MSG_OCCUPATION">Please enter your occupation</string>
     <string name="ERROR_MSG_DESCRIPTION">Please enter your description</string>

@@ -17,11 +17,17 @@ public class Constants {
     static final String TEST_KEY_EMAIL = "jakatemail@hotmail.com";
     static final String TEST_KEY_OCCUPATION = "Software Developer";
     static final String TEST_KEY_DESCRIPTION = "Description of the user goes here.";
-    static final String TEST_KEY_DOB = "01/02/1984";
+    static final String TEST_KEY_DOB = "1/2/1984";
     static final int TEST_YEAR = 1984;
     static final int TEST_MONTH = 01;
     static final int TEST_DAY = 02;
     static final String TEST_FRAGMENT_SETTINGS = "SETTINGS";
+
+    //    TEST ERROR MSG
+    static final String TEST_MSG_ERR_EMAIL = "Please enter valid email";
+    static final String TEST_MSG_ERR_DOB = "You are too young, must be at 18 to register";
+    static final String TEST_MSG_ERR_OCCUPATION = "Please enter valid occupation";
+    static final String TEST_MSG_ERR_DESCRIPTION = "Please enter valid description";
 
 
     //    FIREBASE COLLECTION

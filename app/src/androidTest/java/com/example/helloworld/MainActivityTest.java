@@ -3,6 +3,7 @@ package com.example.helloworld;
 import android.content.Context;
 import android.os.RemoteException;
 import android.widget.DatePicker;
+import android.widget.Toast;
 
 import androidx.test.espresso.Espresso;
 import androidx.test.espresso.action.ViewActions;
@@ -22,6 +23,7 @@ import org.junit.runner.RunWith;
 import static androidx.test.espresso.Espresso.onView;
 import static androidx.test.espresso.action.ViewActions.clearText;
 import static androidx.test.espresso.action.ViewActions.click;
+import static androidx.test.espresso.action.ViewActions.closeSoftKeyboard;
 import static androidx.test.espresso.action.ViewActions.scrollTo;
 
 import static androidx.test.espresso.action.ViewActions.typeText;
@@ -197,12 +199,14 @@ public class MainActivityTest {
     }
 
     @Test
-    public void hasValidBirthDate() {
-        onView(withId(R.id.btnSelectDate)).check(matches(withEffectiveVisibility(ViewMatchers.Visibility.VISIBLE)));
-        onView(withId(R.id.btnSelectDate)).perform(scrollTo()).perform(click());
+    public void hasValidBirthDate() throws InterruptedException {
+        Thread.sleep(2000);
+        closeSoftKeyboard();
+        onView(withId(R.id.btnSelectDate)).perform(ViewActions.scrollTo()).perform(click());
         onView(withClassName(Matchers.equalTo(DatePicker.class.getName())))
                 .perform(setDate(Constants.TEST_YEAR, Constants.TEST_MONTH, Constants.TEST_DAY));
-
+        onView(withId(android.R.id.button1)).perform(click());
+        onView(withId(R.id.tvBirthdate)).check(matches(withText(Constants.TEST_KEY_DOB)));
     }
 
     @Test

@@ -155,7 +155,7 @@ public class MainActivity extends AppCompatActivity implements DatePickerDialog.
             throwMsg.append(getString(R.string.ERROR_MSG_DOB));
         }
         else if (etOccupation.getText().toString().isEmpty()) {
-           isValid = false;
+            isValid = false;
             Toast.makeText(this, R.string.enterOccupation, Toast.LENGTH_SHORT).show();
             throwMsg.append(getString(R.string.ERROR_MSG_OCCUPATION));
         }
