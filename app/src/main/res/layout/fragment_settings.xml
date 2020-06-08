@@ -1,16 +1,107 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/settings"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:padding="@dimen/padding10">
 
     <TextView
-        android:id="@+id/tvSettings"
+        android:id="@+id/tvDistance"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        android:text="@string/settings"
-        android:textColor="@color/colorDarkBlueLight"
+        android:layout_marginTop="@dimen/marginTop20"
+        android:text="@string/distance_search_title"
+        android:textColor="@color/colorPink"
         android:textSize="@dimen/size20sp" />
+
+    <EditText
+        android:id="@+id/etDistance"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tvDistance"
+        android:textSize="@dimen/size14sp"
+        android:hint="@string/hint_enter_distance"
+        android:inputType="number" />
+
+    <TextView
+        android:id="@+id/tvAgeRange"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/etDistance"
+        android:layout_marginTop="@dimen/marginTop20"
+        android:text="@string/age_range_title"
+        android:textColor="@color/colorPink"
+        android:textSize="@dimen/size20sp" />
+
+    <EditText
+        android:id="@+id/etAgeRange"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tvAgeRange"
+        android:hint="Enter age between 18 - 99"
+        android:inputType="number"
+        android:textSize="@dimen/size14sp" />
+
+    <TextView
+        android:id="@+id/tvReminder"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/etAgeRange"
+        android:layout_marginTop="@dimen/marginTop20"
+        android:text="@string/reminder_title"
+        android:textColor="@color/colorPink"
+        android:textSize="@dimen/size20sp" />
+
+    <Spinner
+        android:id="@+id/sReminder"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tvReminder"
+        android:backgroundTint="@color/colorPink" />
+
+    <TextView
+        android:id="@+id/tvPrivacy"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/sReminder"
+        android:layout_marginTop="@dimen/marginTop20"
+        android:text="@string/privacy_title"
+        android:textColor="@color/colorPink"
+        android:textSize="@dimen/size20sp" />
+
+    <Spinner
+        android:id="@+id/sPrivacy"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tvPrivacy"
+        android:backgroundTint="@color/colorPink" />
+
+    <TextView
+        android:id="@+id/tvGenderTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/sPrivacy"
+        android:layout_marginTop="@dimen/marginTop20"
+        android:text="@string/gender_title"
+        android:textColor="@color/colorPink"
+        android:textSize="@dimen/size20sp" />
+
+    <Spinner
+        android:id="@+id/sGender"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tvGenderTitle"
+        android:backgroundTint="@color/colorPink" />
+
+    <Button
+        android:id="@+id/btn_save_settings"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/button_radius"
+        android:padding="@dimen/padding_all_10"
+        android:text="@string/save_button_text"
+        android:textColor="@color/colorWhite"
+        android:textSize="@dimen/size18sp" />
 
 </RelativeLayout>

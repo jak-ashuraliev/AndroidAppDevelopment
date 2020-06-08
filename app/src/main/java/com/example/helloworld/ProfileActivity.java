@@ -31,6 +31,8 @@ public class ProfileActivity extends AppCompatActivity implements MatchesFragmen
         SettingsFragment settingsFragment = new SettingsFragment();
 
         profileFragment.setArguments(userInfo);
+        settingsFragment.setArguments(userInfo);
+
         viewPager = findViewById(R.id.viewpager);
         tabLayout = findViewById(R.id.tablayout);
 

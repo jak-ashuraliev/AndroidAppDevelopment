@@ -89,6 +89,17 @@
     <string name="match_image">Match Image</string>
     <string name="unliked_heart_btn">Unliked heart button</string>
     <string name="share_btn">share button</string>
+    <string name="gender_msg_error">Please select gender</string>
+    <string name="age_msg_error">Age must be between 18-99</string>
+    <string name="distance_msg_error">Distance must be between 0-99</string>
+    <string name="settings_saved_msg">Settings Saved</string>
+    <string name="distance_search_title">Distance Search In Miles</string>
+    <string name="hint_enter_distance">Enter distance between 0 - 99</string>
+    <string name="age_range_title">Age Range</string>
+    <string name="reminder_title">Reminder</string>
+    <string name="privacy_title">Privacy</string>
+    <string name="gender_title">Gender</string>
+    <string name="save_button_text">Save</string>
 
 
 </resources>
