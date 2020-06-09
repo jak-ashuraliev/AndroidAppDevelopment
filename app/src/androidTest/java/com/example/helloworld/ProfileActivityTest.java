@@ -68,31 +68,13 @@ public class ProfileActivityTest {
     }
 
     @Test
-    public void hasTextOnFragments() {
+    public void canSwipeLeftRightOnFragments() {
         onView(withId(R.id.viewpager)).perform(swipeLeft());
         onView(withId(R.id.viewpager)).perform(swipeLeft());
-        onView(withId(R.id.viewpager)).perform(swipeRight());
-        onView(withId(R.id.viewpager)).perform(swipeLeft());
-        onView(withId(R.id.tvSettings)).check(matches(withText(R.string.fragTitleSETTINGS)));
         onView(withId(R.id.viewpager)).perform(swipeRight());
         onView(withId(R.id.viewpager)).perform(swipeRight());
     }
 
-    @Test
-    public void hasSettingTabOnProfileAcitivyt(){
-        onView(withText("SETTINGS")).perform(click());
-        onView(withId(R.id.tvSettings)).check(matches(withText("SETTINGS")));
-    }
-
-    @Test
-    public void checkSettingsFragment() {
-        onView(withId(R.id.viewpager)).perform(swipeLeft());
-        onView(withId(R.id.viewpager)).perform(swipeLeft());
-        onView(withId(R.id.tvSettings)).check(matches(withText(Constants.TEST_FRAGMENT_SETTINGS)));
-        onView(withId(R.id.viewpager)).perform(swipeRight());
-        onView(withId(R.id.viewpager)).perform(swipeLeft());
-        onView(withId(R.id.tvSettings)).check(matches(withText(Constants.TEST_FRAGMENT_SETTINGS)));
-    }
 
     @Test
     public void checktMatchesTab(){
