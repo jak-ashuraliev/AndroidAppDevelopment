@@ -1,6 +1,8 @@
 package com.example.helloworld;
 
 import android.content.Context;
+import android.content.Intent;
+import android.os.Bundle;
 import android.os.RemoteException;
 import android.widget.DatePicker;
 import android.widget.Toast;
@@ -11,10 +13,12 @@ import androidx.test.espresso.intent.rule.IntentsTestRule;
 import androidx.test.espresso.matcher.ViewMatchers;
 import androidx.test.ext.junit.rules.ActivityScenarioRule;
 import androidx.test.ext.junit.runners.AndroidJUnit4;
+import androidx.test.platform.app.InstrumentationRegistry;
 import androidx.test.uiautomator.UiDevice;
 
 
 import org.hamcrest.Matchers;
+import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -50,6 +54,20 @@ public class MainActivityTest {
     @Rule
     public IntentsTestRule<MainActivity> mActivityRule = new IntentsTestRule<>(
             MainActivity.class);
+
+    @Before
+    public void setUp() {
+        Context targetContext = InstrumentationRegistry.getInstrumentation().getTargetContext();
+        Intent intent = new Intent(targetContext, MainActivity.class);
+        Bundle bundle = new Bundle();
+        bundle.putString(Constants.TEST_KEY_FIRSTNAME, "Jak");
+        bundle.putString(Constants.TEST_KEY_LASTNAME, "Ashuraliev");
+        bundle.putString(Constants.TEST_KEY_EMAIL, "jakatemail@hotmail.com");
+        bundle.putString(Constants.TEST_KEY_DOB, "1/2/1984");
+        bundle.putString(Constants.KEY_OCCUPATION, "Occupation");
+        bundle.putString(Constants.KEY_DESCRIPTION, "Description");
+        mActivityRule.launchActivity(intent);
+    }
 
     @Test
     public void hasLogo() {

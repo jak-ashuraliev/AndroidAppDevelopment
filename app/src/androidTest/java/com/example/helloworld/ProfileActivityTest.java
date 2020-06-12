@@ -1,7 +1,5 @@
 package com.example.helloworld;
 
-import android.content.Intent;
-
 import androidx.test.espresso.matcher.ViewMatchers;
 import androidx.test.ext.junit.rules.ActivityScenarioRule;
 import androidx.test.ext.junit.runners.AndroidJUnit4;
@@ -55,26 +53,12 @@ public class ProfileActivityTest {
     }
 
     @Test
-    public void descriptionOnProfileScreenIsVisible() {
-        onView(withId(R.id.tvDescription)).check(matches(withEffectiveVisibility(ViewMatchers.Visibility.VISIBLE)));
-    }
-
-    @Test
     public void hasButtonSignout() {
         onView(withId(R.id.signout_btn)).perform(scrollTo());
         onView(withId(R.id.signout_btn)).check(matches(withEffectiveVisibility(ViewMatchers.Visibility.VISIBLE)));
         onView(withId(R.id.signout_btn)).perform(scrollTo()).check(matches(isDisplayed()));
         onView(withId(R.id.signout_btn)).perform(scrollTo()).perform(click());
     }
-
-    @Test
-    public void canSwipeLeftRightOnFragments() {
-        onView(withId(R.id.viewpager)).perform(swipeLeft());
-        onView(withId(R.id.viewpager)).perform(swipeLeft());
-        onView(withId(R.id.viewpager)).perform(swipeRight());
-        onView(withId(R.id.viewpager)).perform(swipeRight());
-    }
-
 
     @Test
     public void checktMatchesTab(){
