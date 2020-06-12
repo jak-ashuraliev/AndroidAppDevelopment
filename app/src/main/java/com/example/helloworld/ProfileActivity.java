@@ -3,6 +3,7 @@ package com.example.helloworld;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.provider.Settings;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
@@ -21,6 +22,7 @@ import com.google.android.material.tabs.TabLayout;
 import com.google.android.material.tabs.TabLayoutMediator;
 import java.util.ArrayList;
 import java.util.List;
+
 
 public class ProfileActivity extends AppCompatActivity implements MatchesFragment.LikedClickListener {
 
@@ -68,7 +70,7 @@ public class ProfileActivity extends AppCompatActivity implements MatchesFragmen
                     matchesFragment.setArguments(bundle);
                 }
         );
-        gpsNetworkUpdate();
+        requestUpdateGPS();
         viewPager.setAdapter(adapter);
 
         new TabLayoutMediator(tabLayout, viewPager, (tab, position) -> {
@@ -82,35 +84,33 @@ public class ProfileActivity extends AppCompatActivity implements MatchesFragmen
         }).attach();
     }
 
-//    private void showAlert() {
-//        final AlertDialog.Builder dialog = new AlertDialog.Builder(this);
-//        dialog.setTitle(Constants.LOCATION_ENABLE)
-//                .setMessage(Constants.LOCATION_ON)
-//                .setPositiveButton(Constants.LOCATION_SETTINGS, (paramDialogInterface, paramInt) -> {
-//                    Intent i = new Intent(Settings.ACTION_LOCATION_SOURCE_SETTING);
-//                    startActivityForResult(i, LOCATION_PERMISSION_CODE);
-//                })
-//                .setNegativeButton(Constants.LOCATION_OFF, (paramDialogInterface, paramInt) -> {
-//                });
-//        dialog.show();
-//    }
+    private void showAlert() {
+        final AlertDialog.Builder dialog = new AlertDialog.Builder(this);
+        dialog.setTitle(Constants.LOCATION_ENABLE)
+                .setMessage(Constants.LOCATION_ON)
+                .setPositiveButton(Constants.LOCATION_SETTINGS, (paramDialogInterface, paramInt) -> {
+                    Intent i = new Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS);
+                    startActivityForResult(i, LOCATION_PERMISSION_CODE);
+                })
+                .setNegativeButton(Constants.LOCATION_OFF, (paramDialogInterface, paramInt) -> {
+                });
+        dialog.show();
+    }
 
-    public void gpsNetworkUpdate() {
+    public void requestUpdateGPS() {
         if (ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED ||
                 ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_COARSE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
             locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 60 * 1000, 10, locationListenerGPS);
         } else {
-//            showAlert();
-            return;
+            showAlert();
         }
     }
-
 
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         if (requestCode == LOCATION_PERMISSION_CODE) {
             if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                gpsNetworkUpdate();
+                requestUpdateGPS();
             }
         }
     }
@@ -119,7 +119,7 @@ public class ProfileActivity extends AppCompatActivity implements MatchesFragmen
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == LOCATION_PERMISSION_CODE)
-            gpsNetworkUpdate();
+            requestUpdateGPS();
     }
 
     private final LocationListener locationListenerGPS = new LocationListener() {
