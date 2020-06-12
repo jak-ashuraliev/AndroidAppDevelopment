@@ -16,6 +16,8 @@ public class MatchesFragment extends Fragment {
 
     private List<MatchItem> mMatches;
     private MatchesFragment.LikedClickListener mListener;
+    private double latitude;
+    private double longitude;
 
     public MatchesFragment() {
     }
@@ -24,6 +26,8 @@ public class MatchesFragment extends Fragment {
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         mMatches = getArguments().getParcelableArrayList(Constants.COLLECTION_MATCHES);
+        latitude = getArguments().getDouble(Constants.collection_latitude);
+        longitude = getArguments().getDouble(Constants.collection_longitude);
     }
 
     @Override

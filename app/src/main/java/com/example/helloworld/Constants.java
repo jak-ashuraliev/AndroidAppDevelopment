@@ -37,8 +37,14 @@ public class Constants {
     static final String collection_liked = "liked";
     static final String collection_occupation = "occupation";
     static final String collection_description = "description";
+    static final String collection_latitude = "lat";
+    static final String collection_longitude = "longitude";
     static final String COLLECTION_MATCHES = "matches";
     static final String ERR_GETTING_MATCHES = "Error fetching data from collection!";
+    static final String LOCATION_ENABLE = "Enable Location";
+    static final String LOCATION_ON = "Location must be ON";
+    static final String LOCATION_SETTINGS = "Location must be ON";
+    static final String LOCATION_OFF = "Location OFF";
 
 }
 
