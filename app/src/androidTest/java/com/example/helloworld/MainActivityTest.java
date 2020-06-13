@@ -55,20 +55,6 @@ public class MainActivityTest {
     public IntentsTestRule<MainActivity> mActivityRule = new IntentsTestRule<>(
             MainActivity.class);
 
-    @Before
-    public void setUp() {
-        Context targetContext = InstrumentationRegistry.getInstrumentation().getTargetContext();
-        Intent intent = new Intent(targetContext, MainActivity.class);
-        Bundle bundle = new Bundle();
-        bundle.putString(Constants.TEST_KEY_FIRSTNAME, "Jak");
-        bundle.putString(Constants.TEST_KEY_LASTNAME, "Ashuraliev");
-        bundle.putString(Constants.TEST_KEY_EMAIL, "jakatemail@hotmail.com");
-        bundle.putString(Constants.TEST_KEY_DOB, "1/2/1984");
-        bundle.putString(Constants.KEY_OCCUPATION, "Occupation");
-        bundle.putString(Constants.KEY_DESCRIPTION, "Description");
-        mActivityRule.launchActivity(intent);
-    }
-
     @Test
     public void hasLogo() {
         onView(withId(R.id.app_logo)).check(matches(isDisplayed()));
