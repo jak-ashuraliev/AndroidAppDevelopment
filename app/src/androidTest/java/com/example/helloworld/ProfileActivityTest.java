@@ -11,8 +11,6 @@ import org.junit.runner.RunWith;
 import static androidx.test.espresso.Espresso.onView;
 import static androidx.test.espresso.action.ViewActions.click;
 import static androidx.test.espresso.action.ViewActions.scrollTo;
-import static androidx.test.espresso.action.ViewActions.swipeLeft;
-import static androidx.test.espresso.action.ViewActions.swipeRight;
 import static androidx.test.espresso.assertion.ViewAssertions.matches;
 import static androidx.test.espresso.contrib.RecyclerViewActions.actionOnItemAtPosition;
 import static androidx.test.espresso.matcher.ViewMatchers.isDisplayed;
@@ -32,25 +30,25 @@ public class ProfileActivityTest {
         onView(withId(R.id.profile_photo)).check(matches(isDisplayed()));
     }
 
-//    @Test
-//    public void hasNameOnProfileScreen() {
-//        onView(withId(R.id.tvName)).check(matches(withText(Constants.KEY_FIRSTNAME)));
-//    }
+    @Test
+    public void hasNameOnProfileScreen() {
+        onView(withId(R.id.tvName)).check(matches(withText(Constants.KEY_FIRSTNAME)));
+    }
 
     @Test
     public void nameOnProfileScreenIsVisible() {
         onView(withId(R.id.tvName)).check(matches(withEffectiveVisibility(ViewMatchers.Visibility.VISIBLE)));
     }
 
-    @Test
-    public void ageOnProfileScreenIsVisible() {
-        onView(withId(R.id.tvAge)).check(matches(withEffectiveVisibility(ViewMatchers.Visibility.VISIBLE)));
-    }
-
-    @Test
-    public void occupationOnProfileScreenIsVisible() {
-        onView(withId(R.id.tvOccupation)).check(matches(withEffectiveVisibility(ViewMatchers.Visibility.VISIBLE)));
-    }
+//    @Test
+////    public void ageOnProfileScreenIsVisible() {
+////        onView(withId(R.id.tvAge)).check(matches(withEffectiveVisibility(ViewMatchers.Visibility.VISIBLE)));
+////    }
+//
+//    @Test
+//    public void occupationOnProfileScreenIsVisible() {
+//        onView(withId(R.id.tvOccupation)).check(matches(withEffectiveVisibility(ViewMatchers.Visibility.VISIBLE)));
+//    }
 
     @Test
     public void hasButtonSignout() {
@@ -60,14 +58,14 @@ public class ProfileActivityTest {
         onView(withId(R.id.signout_btn)).perform(scrollTo()).perform(click());
     }
 
-//    @Test
-//    public void checktMatchesTab(){
-//        onView(withText("MATCHES")).perform(click());
-//        onView(withId(R.id.recycler_view)).perform(actionOnItemAtPosition(1, click()));
-//        onView(withId(R.id.recycler_view)).perform(actionOnItemAtPosition(2, click()));
-//        onView(withId(R.id.recycler_view)).perform(actionOnItemAtPosition(3, click()));
-//        onView(withId(R.id.recycler_view)).perform(actionOnItemAtPosition(4, click()));
-//        onView(withId(R.id.recycler_view)).perform(actionOnItemAtPosition(5, click()));
-//    }
+    @Test
+    public void checktMatchesTab(){
+        onView(withText("MATCHES")).perform(click());
+        onView(withId(R.id.recycler_view)).perform(actionOnItemAtPosition(1, click()));
+        onView(withId(R.id.recycler_view)).perform(actionOnItemAtPosition(2, click()));
+        onView(withId(R.id.recycler_view)).perform(actionOnItemAtPosition(3, click()));
+        onView(withId(R.id.recycler_view)).perform(actionOnItemAtPosition(4, click()));
+        onView(withId(R.id.recycler_view)).perform(actionOnItemAtPosition(5, click()));
+    }
 
 }
