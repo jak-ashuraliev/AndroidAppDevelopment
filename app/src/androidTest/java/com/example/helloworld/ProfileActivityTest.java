@@ -58,14 +58,14 @@ public class ProfileActivityTest {
         onView(withId(R.id.signout_btn)).perform(scrollTo()).perform(click());
     }
 
-    @Test
-    public void checktMatchesTab(){
-        onView(withText("MATCHES")).perform(click());
-        onView(withId(R.id.recycler_view)).perform(actionOnItemAtPosition(1, click()));
-        onView(withId(R.id.recycler_view)).perform(actionOnItemAtPosition(2, click()));
-        onView(withId(R.id.recycler_view)).perform(actionOnItemAtPosition(3, click()));
-        onView(withId(R.id.recycler_view)).perform(actionOnItemAtPosition(4, click()));
-        onView(withId(R.id.recycler_view)).perform(actionOnItemAtPosition(5, click()));
-    }
+//    @Test
+//    public void checktMatchesTab(){
+//        onView(withText("MATCHES")).perform(click());
+//        onView(withId(R.id.recycler_view)).perform(actionOnItemAtPosition(1, click()));
+//        onView(withId(R.id.recycler_view)).perform(actionOnItemAtPosition(2, click()));
+//        onView(withId(R.id.recycler_view)).perform(actionOnItemAtPosition(3, click()));
+//        onView(withId(R.id.recycler_view)).perform(actionOnItemAtPosition(4, click()));
+//        onView(withId(R.id.recycler_view)).perform(actionOnItemAtPosition(5, click()));
+//    }
 
 }
