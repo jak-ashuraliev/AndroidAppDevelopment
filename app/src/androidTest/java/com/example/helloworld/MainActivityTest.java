@@ -105,13 +105,6 @@ public class MainActivityTest {
     }
 
     @Test
-    public void hasValidDescription() {
-        onView(withId(R.id.etDescription)).perform(typeText(Constants.TEST_KEY_DESCRIPTION),
-                closeSoftKeyboard());
-        onView(withId(R.id.etDescription)).check(matches(withText(Constants.TEST_KEY_DESCRIPTION)));
-    }
-
-    @Test
     public void hasCorrectBirthday() throws InterruptedException {
         Thread.sleep(2000);
         closeSoftKeyboard();
@@ -138,21 +131,6 @@ public class MainActivityTest {
         onView(withId(R.id.signup_btn)).check(matches(withEffectiveVisibility(ViewMatchers.Visibility.VISIBLE)));
         onView(withId(R.id.signup_btn)).perform(scrollTo()).check(matches(isDisplayed()));
         onView(withId(R.id.signup_btn)).perform(scrollTo()).perform(click());
-    }
-
-    private Calendar c = Calendar.getInstance();
-    private int currentYear = c.get(Calendar.YEAR);
-    private int currentMonth = c.get(Calendar.MONTH);
-    private int currentDayOfMonth = c.get(Calendar.DAY_OF_MONTH);
-
-    @Test
-    public void dataExistsOnrientationView() throws RemoteException {
-        onView(withId(R.id.btnSelectDate)).perform(ViewActions.scrollTo()).perform(click());
-        onView(withClassName(Matchers.equalTo(DatePicker.class.getName()))).perform(setDate(
-                currentYear - 100, currentMonth, currentDayOfMonth));
-        onView(withId(android.R.id.button1)).perform(click());
-        onView(withId(R.id.signup_btn)).perform(click());
-
     }
 
     @Test
@@ -188,7 +166,6 @@ public class MainActivityTest {
         onView(withId(R.id.signup_btn)).perform(scrollTo()).check(matches(isDisplayed()));
         onView(withId(R.id.signup_btn)).perform(scrollTo()).perform(click());
     }
-
 
     @Test
     public void userCanEnterLastName() {
@@ -291,15 +268,6 @@ public class MainActivityTest {
         UiDevice device = UiDevice.getInstance(getInstrumentation());
         device.setOrientationRight();
         device.setOrientationNatural();
-    }
-
-    @Test
-    public void ageTooYoung() {
-        onView(withId(R.id.btnSelectDate)).perform(ViewActions.scrollTo()).perform(click());
-        onView(withClassName(Matchers.equalTo(DatePicker.class.getName()))).perform(setDate(
-                currentYear + 10, currentMonth, currentDayOfMonth));
-        onView(withId(android.R.id.button1)).perform(click());
-        onView(withId(R.id.signup_btn)).perform(click());
     }
 
 
