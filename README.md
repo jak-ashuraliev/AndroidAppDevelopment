@@ -6,10 +6,10 @@
 This class covers core concepts of mobile application development with a focus on the Android platform. Students will learn key skills used by professional Android mobile developers, and will design, develop and publish a fully-functional mobile application they can reference for job applications or future projects. 
 
 ## App Screenshots
-![](screenshots/page1.png)
-![](screenshots/page2.png)
-![](screenshots/page3.png)
-![](screenshots/page4.png)
+![](screenshots/page1.jpg)
+![](screenshots/page2.jpg)
+![](screenshots/page3.jpg)
+![](screenshots/page4.jpg)
 
 ## Class Topics
 
