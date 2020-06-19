@@ -27,6 +27,7 @@ public class SettingsFragment extends Fragment {
     Spinner privacy;
     Spinner gender;
     Button save;
+    MatchesFragment matchesFragment;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -126,5 +127,6 @@ public class SettingsFragment extends Fragment {
 
         return view;
     }
+
 
 }

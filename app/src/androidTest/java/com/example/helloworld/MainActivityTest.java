@@ -1,11 +1,10 @@
 package com.example.helloworld;
 
 import android.content.Context;
-import android.content.Intent;
-import android.os.Bundle;
+
 import android.os.RemoteException;
+import android.view.View;
 import android.widget.DatePicker;
-import android.widget.Toast;
 
 import androidx.test.espresso.Espresso;
 import androidx.test.espresso.action.ViewActions;
@@ -15,14 +14,11 @@ import androidx.test.ext.junit.rules.ActivityScenarioRule;
 import androidx.test.ext.junit.runners.AndroidJUnit4;
 import androidx.test.uiautomator.UiDevice;
 
-
 import org.hamcrest.Matchers;
+import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-
-
-import java.util.Calendar;
 
 import static androidx.test.espresso.Espresso.onView;
 import static androidx.test.espresso.action.ViewActions.clearText;
@@ -54,6 +50,18 @@ public class MainActivityTest {
     @Rule
     public IntentsTestRule<MainActivity> mActivityRule = new IntentsTestRule<>(
             MainActivity.class);
+
+    private View decorView;
+
+    @Before
+    public void setUp() {
+        activityScenarioRule.getScenario().onActivity(activity -> decorView = activity.getWindow().getDecorView());
+    }
+
+    public static RecyclerViewMatcher withRecyclerView(final int recyclerViewId) {
+        return new RecyclerViewMatcher(recyclerViewId);
+    }
+
 
     @Test
     public void hasLogo() {

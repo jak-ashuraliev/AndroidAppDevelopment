@@ -43,9 +43,11 @@ public class Constants {
     static final String ERR_GETTING_MATCHES = "Error fetching data from collection!";
     static final String LOCATION_ENABLE = "Enable Location";
     static final String LOCATION_ON = "Location must be ON";
-    static final String LOCATION_SETTINGS = "Location must be ON";
+    static final String LOCATION_SETTINGS = "Location Settings";
     static final String LOCATION_OFF = "Location OFF";
-
+    static final String LOCATION_MSG = "Your location is off, turn location on";
+    static final String LOCATION_CANCEL = "Cancel";
+    public static final int GET_LOCATION_SETTINGS = 8;
 }
 
 
